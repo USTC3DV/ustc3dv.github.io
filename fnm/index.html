@@ -225,8 +225,8 @@
         <div class="content has-text-justified">
           <p style="margin-top: 30px">
             Overview of our method. 
-            Given sample point $\mathbf{x}$ at frame $t$, we first obtain a surface-relative representation $\mathbf{r}_i$ conditioned on human body surface via KNN of $\mathbf{p}_i$ to aggregate the corresponding point information of different frames. 
-            Then we exploit multi-resolution hash encoding to get the feature, which is the encoded input to the NeRF MLP to regress color and density at $\mathbf{x}$.
+            Given a sample point at any frame, we first obtain a surface-relative representation conditioned on human body surface via KNN to aggregate the corresponding point information of different frames. 
+            Then we exploit multi-resolution hash encoding to get the feature, which is the encoded input to the NeRF MLP to regress color and density.
           </p>
         </div>
 
