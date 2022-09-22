@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Neural Surface Reconstruction of Dynamic Scenes with Monocular RGB-D Camera">
+        content="Fast Training Neural Radiance Field for Human from Monocular Video">
   <meta name="keywords" content="Dynamic Reconstruction, Monocular RGB-D Reconstruction, Neural Implicit Function">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>NDR</title>
@@ -57,14 +57,11 @@
 
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://rainbowrui.github.io/">Hongrui Cai</a><sup>1</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+              Bo Peng</a><sup>1</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
             <span class="author-block">
-              <a href="https://github.com/WanquanF">Wanquan Feng</a><sup>1</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+              Jun Hu</a><sup>1</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?hl=en&user=5G-2EFcAAAAJ">Xuetao Feng</a><sup>2</sup>
-            </span>&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="author-block">
-              Yan Wang<sup>2</sup>
+              Jingtao Zhou</a><sup>1</sup>
             </span>&nbsp;&nbsp;&nbsp;&nbsp;
             <span class="author-block">
               <a href="http://staff.ustc.edu.cn/~juyong/">Juyong Zhang</a><sup>1</sup>
@@ -73,7 +70,6 @@
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>University of Science and Technology of China</span>&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="author-block"><sup>2</sup>Alibaba Group</span>&nbsp;&nbsp;&nbsp;&nbsp;
           </div>
 
           <div class="column has-text-centered">
@@ -152,7 +148,7 @@
       -->
       <img src="./resources/teaser.png" class="center">
       <h2 class="subtitle has-text-centered" style="margin-top: 15px">
-        TL;DR: We propose Neural-DynamicReconstruction (NDR), a template-free method to recover high-fidelity geometry (shown in right), motions and appearance (shown in left) of a dynamic scene from a monocular RGB-D camera.
+        TL;DR: Given a monocular video of the human performer, our proposed method is able to train from scratch and converge in about twenty minutes, and then generate free-view points videos
       </h2>
     </div>
   </div>
@@ -188,12 +184,12 @@
         <h2 class="title is-3" style="margin-top: -30px">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We propose Neural-DynamicReconstruction (NDR), a template-free method to recover high-fidelity geometry and motions of a dynamic scene from a monocular RGB-D camera.
-            In NDR, we adopt the neural implicit function for surface representation and rendering such that the captured color and depth can be fully utilized to jointly optimize the surface and deformations.
-            To represent and constrain the non-rigid deformations, we propose a novel neural invertible deforming network such that the cycle consistency between arbitrary two frames is automatically satisfied.
-            Considering that the surface topology of dynamic scene might change over time, we employ a topology-aware strategy to construct the topology-variant correspondence for the fused frames.
-            NDR also further refines the camera poses in a global optimization manner.
-            Experiments on public datasets and our collected dataset demonstrate that NDR outperforms existing monocular dynamic reconstruction methods.
+            In this paper, we propose an efficient neural radiance field based novel view synthesis method for human performance. 
+            Given monocular videos of human performers, our method can train from scratch and achieve high-fidelity results in about twenty minutes. 
+            Some recent works have utilized the neural radiance field for dynamic human reconstruction. 
+            However, most of these methods need multi-view inputs and require hours of training, making it still difficult for practical use. 
+            To address this challenging problem, we introduce a surface-relative representation based on multi-resolution hash encoding that can greatly improve the training speed and aggregate inter-frame information.
+            Extensive experimental results on several different datasets demonstrate the effectiveness and efficiency of our approach to challenging monocular videos.
           </p>
         </div>
       </div>
@@ -228,10 +224,9 @@
         <img src="./resources/pipeline.png" class="center">
         <div class="content has-text-justified">
           <p style="margin-top: 30px">
-            We adopt the neural SDF and radiance field to respectively represent the high-fidelity geometry and appearance in the canonical space (shown in top).
-            In our framework, each RGB-D frame can be integrated into the canonical representation.
-            We propose a novel neural deformation representation (shown in bottom) that implies a continuous bijective map between observation and canonical space.
-            The designed invertible module applies a cycle consistency constraint through the whole RGB-D video; meanwhile, it fits the natural properties of non-rigid motion well.
+            Overview of our method. 
+            Given sample point $\mathbf{x}$ at frame $t$, we first obtain a surface-relative representation $\mathbf{r}_i$ conditioned on human body surface via KNN of $\mathbf{p}_i$ to aggregate the corresponding point information of different frames. 
+            Then we exploit multi-resolution hash encoding to get the feature, which is the encoded input to the NeRF MLP to regress color and density at $\mathbf{x}$.
           </p>
         </div>
 
@@ -254,11 +249,11 @@
 
         <div class="content has-text-justified">
           <p>
-            We test our NDR on multiple datasets (KillingFusion dataset [Slavcheva et al. 2017], DeepDeform dataset [Bozic et al. 2020] and our collected dataset) which covers various object classes and challenging cases.
+            We test our method on multiple datasets (Zju-Mocap dataset[Peng et al. 2021], People-Snapshot dataset [Bozic et al. 2020] and our collected dataset).
           </p>
         </div>
         
-        <h3 class="title is-4">Human Body and Head</h3>
+<!--         <h3 class="title is-4">Human Body and Head</h3>
         <div class="content has-text-centered">
           <video id="replay-video"
                  autoplay
@@ -409,7 +404,7 @@
 
   </div>
 </section>
-
+ -->
 
 
 <section class="section" id="BibTeX">
