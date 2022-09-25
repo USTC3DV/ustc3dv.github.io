@@ -56,7 +56,7 @@
           <h2 class="title is-2 publication-title" style="margin-top: 0; margin-bottom: 2">Reconstructing Personalized Semantic Facial NeRF Models From
             Monocular Video</h2>
             <!-- <h2 class="title is-4 publication-title" style="margin-top: 0; margin-bottom: 0">SIGGRAPH Asia 2022 (Journal Track)</h2> -->
-          <h2 class="title is-4 publication-title" style="color:#6e6e6e;margin-top: 2; margin-bottom: 2">SIGGRAPH Asia 2022 (Journal Track)</h2>
+          <h2 class="title is-4 publication-title" style="color:#6e6e6e;margin-top: 2; margin-bottom: 2">Accepted by SIGGRAPH Asia 2022 (Journal Track)</h2>
           <!-- <h2 class="title is-2 publication-title" style="margin-top: 0"></h2> -->
 
           <div class="is-size-5 publication-authors">
@@ -159,7 +159,7 @@
                 type="video/mp4">
       </video>
       -->
-      <img src="./resources/teaser.png" class="center">
+      <img src="./resources/teaser.jpg" class="center">
       <h2 class="subtitle has-text-centered" style="margin-top: 15px">
         TL;DR: A semantic model for human head defined with neural radiance field is presented. In this model, multi-level voxel field is adopted as basis with corresponding expression coefficients, which enables strong representation ability on the aspect of rendering and fast training.
       </h2>
@@ -229,10 +229,10 @@
       <div class="column is-full-width">
         <h2 class="title is-3" style="margin-top: -20px">Method</h2>
 
-        <img src="./resources/pipeline.png" class="center">
+        <img src="./resources/pipeline.jpg" class="center">
         <div class="content has-text-justified">
           <p style="margin-top: 30px">
-            We track the RGB sequence and get expression coefficients, poses, and intrinsics. Then we use the tracked expression coefficients to combine multiple multi-level hash tables to get a hash table corresponding to a specific expression. Then the sampled point is queried in hash table to get voxel features, we use an MLP to interpret the voxel features as RGB and density. We fix the expression coefficients and optimize the hash tables and MLP to get our head model.
+            We track the RGB sequence and get expression coefficients, poses, and intrinsics. Then we use the tracked expression coefficients to combine multiple multi-level hash tables to get a hash table corresponding to a specific expression. Then the sampled point is queried in the hash table to get voxel features, we use an MLP to interpret the voxel features as RGB and density. We fix the expression coefficients and optimize the hash tables and MLP to get our head model.
           </p>
         </div>
         <div class="content has-text-centered">
@@ -241,7 +241,7 @@
                  preload
                  playsinline
                  loop
-                 width="90%">
+                 width="100%">
             <source src="./resources/method.mp4"
                     type="video/mp4">
           </video>
@@ -326,7 +326,6 @@
         <div class="content has-text-centered">
           <video id="replay-video"
                  controls
-                 muted
                  preload
                  playsinline
                  loop
