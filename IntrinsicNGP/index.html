@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="SelfNeRF: Fast Training NeRF for Human from Monocular Self-rotating Video">
+        content="IntrinsicNGP: Intrinsic Coordinate based Hash Encoding for Human NeRF">
   <meta name="keywords" content="Fast Training,NeRF,Human Reconstrcution, Neural Implicit Function">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SelfNeRF</title>
+  <title>IntrinsicNGP:</title>
 
   <!-- Bootstrap -->
   <link href="static/css/bootstrap-4.4.1.css" rel="stylesheet">
@@ -145,9 +145,9 @@
                 type="video/mp4">
       </video>
       -->
-      <img src="./resources/teaser.png" class="center">
+      <img src="./resources/teaser.jpg" class="center">
       <h2 class="subtitle has-text-centered" style="margin-top: 15px">
-        TL;DR: Given a monocular video of the human performer, our proposed method is able to train from scratch and converge in about twenty minutes, and then generate free-view points videos
+        TL;DR: For a 400-frame monocular video with a resolution of 1224 $\times$ 1024, IntrinsicNGP can train from scratch and converge within twenty minutes on a single RTX 3090 and supports novel view synthesis as well as human shape editing
       </h2>
     </div>
   </div>
@@ -183,12 +183,14 @@
         <h2 class="title is-3" style="margin-top: -30px">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            In this paper, we propose an efficient neural radiance field based novel view synthesis method for human performance. 
-            Given monocular self-rotating videos of human performers, our method can train from scratch and achieve high-fidelity results in about twenty minutes. 
-            Some recent works have utilized the neural radiance field for dynamic human reconstruction. 
-            However, most of these methods need multi-view inputs and require hours of training, making it still difficult for practical use. 
-            To address this challenging problem, we introduce a surface-relative representation based on multi-resolution hash encoding that can greatly improve the training speed and aggregate inter-frame information.
-            Extensive experimental results on several different datasets demonstrate the effectiveness and efficiency of our approach to challenging monocular videos.
+            Recently, many works have been proposed to utilize the neural radiance field for novel view synthesis of human performers. 
+            However, most of these methods require hours of training, making them difficult for practical use. 
+            To address this challenging problem, we propose IntrinsicNGP, which can train from scratch and achieve high-fidelity results in about twenty minutes with videos of a human performer. 
+            To achieve this target, we introduce a continuous and optimizable intrinsic coordinate rather than the original explicit Euclidean coordinate in the hash encoding module of instant-NGP. 
+            With this novel intrinsic coordinate, IntrinsicNGP can aggregate inter-frame information for dynamic objects with the help of proxy geometry shapes. 
+            Moreover, the results trained with the given rough geometry shapes can be further refined with an optimizable offset field based on the intrinsic coordinate.
+            Extensive experimental results on several datasets demonstrate the effectiveness and efficiency of IntrinsicNGP. 
+            We also illustrate our approach's ability to edit the shape of reconstructed subjects.
           </p>
         </div>
       </div>
@@ -220,11 +222,12 @@
       <div class="column is-full-width">
         <h2 class="title is-3" style="margin-top: -20px">Method</h2>
 
-        <img src="./resources/pipeline.png" class="center">
+        <img src="./resources/pipeline.jpg" class="center">
         <div class="content has-text-justified">
           <p style="margin-top: 30px">
             Overview of our method. 
-            Given a sample point at any frame, we first obtain a surface-relative representation conditioned on human body surface via KNN to aggregate the corresponding point information of different frames. 
+            Given a sample point at any frame, we first obtain an intrinsic coordinate conditioned on human body surface to aggregate the corresponding point information of different frames.
+            An offset field is proposed to optimize the intrinsic coordinate to model detailed non-rigid deformation.
             Then we exploit multi-resolution hash encoding to get the feature, which is the encoded input to the NeRF MLP to regress color and density.
           </p>
         </div>
