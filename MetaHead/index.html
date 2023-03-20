@@ -410,69 +410,66 @@
     <div class="content has-text-justified">
       <div class="column is-full-width">
         <h2 class="title is-3 has-text-centered" style="margin-top: -30px">LabelHead: a Generic Top-down Image Generation Framework</h2>
-
-        <h3 class="title is-4">Control over Customizable Head Attributes</h3>
-        <div class="content has-text-justified">
-          <p>
-            The feature design space of MetaHead-F has many customizable options in addition to identity, illumination and texture.  We present examples of adding other features to the feature design space, which verifies that LabelHead allows MetaHead-F to precisely control more attributes such as gaze and hair color in addition to the common attributes in a disentanglement manner, which cannot be achieved by existing models.
-          </p>
-          <video id="replay-video"
-                 autoplay
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 loop
-                 width="100%">
-            <source src="./project_page_assets/GazeAndHairColorControl.mp4"
-                    type="video/mp4">
-          </video>
-          <p>
-            we also present synthesizing heads with consistent semantic labels and the interactive local control over head shape using semantic labels.
-          </p>
-          <img src="./project_page_assets/HeadShapeControl.png" class="center">
-        </div>
-
-        <h3 class="title is-4">Synthesizing Labeled Training Images</h3>
-        <div class="content has-text-justified">
-          <p>
-            In recent years, methods for head label such as landmark and gaze estimation have not yet reached a satisfactory level of performance. This is primarily due to the lack of sufficiently large and diverse labeled training data for the task. Collecting precise and highly varied head labeled data with ground truth, particularly outside of the lab, is a challenging task. In the main manuscript, due to the limited space, we discuss landmark feature in detail. We embed the landmark feature 3D-HeadPoints into the feature design space and fine-tune the pre-trained MetaHead-F on 300W  training images for 2D face alignment task and Face Synthetics for 3D face alignment task, respectively. We show 2D landmark labels in (a) Row 1-3, 3D landmark labels in (a) Row 4 and (b). (a) shows that LabelHead could generate super-realistic heads under challenging scenes and diverse shape and appearance variation with accurate labels. (b) shows that MetaHead-F could synthesize stylized heads with equally accuracy. 
-          </p>
-          <img src="./project_page_assets/LabeledTrainingImages.png" class="center">
-        </div>
-
-        <!-- Landmark Estimation. -->
-        <div class="column">
-          <h4 class="title is-3">Synthesizing Landmark Labeled Training Data</h4>
-          <div class="columns is-centered">
-            <div class="content">
-              <p>
-                Our synthesized heads help label estimation with small amount of real data, and surpasses state-of-the-art landmark-labeled image generation method [45] on head synthesis.
-              </p>
-              <img src="./project_page_assets/LandmarkEstimation.png" class="center">
-            </div>
-          </div> 
-        </div>
-        <!--/ Landmark Estimation. -->
-
-        <!-- Gaze Estimation. -->
-        <div class="column">
-          <h4 class="title is-3">Synthesizing Gaze Labeled Training Data</h4>
-          <div class="columns is-centered">
-            <div class="column content">
-              <p>
-                Our synthesized heads help label estimation with small amount of real data on popular gaze benchmarks.
-              </p>
-              <img src="./project_page_assets/GazeEstimation.png" class="center">
-            </div>
-
-          </div>
-        </div>
-        <!-- Gaze Estimation. -->
-
       </div>
-    </div>
+      <h3 class="title is-4">Control over Customizable Head Attributes</h3>
+      <div class="content has-text-justified">
+        <p>
+          The feature design space of MetaHead-F has many customizable options in addition to identity, illumination and texture.  We present examples of adding other features to the feature design space, which verifies that LabelHead allows MetaHead-F to precisely control more attributes such as gaze and hair color in addition to the common attributes in a disentanglement manner, which cannot be achieved by existing models.
+        </p>
+        <video id="replay-video"
+               autoplay
+               controls
+               muted
+               preload
+               playsinline
+               loop
+               width="100%">
+          <source src="./project_page_assets/GazeAndHairColorControl.mp4"
+                  type="video/mp4">
+        </video>
+        <p>
+          we also present synthesizing heads with consistent semantic labels and the interactive local control over head shape using semantic labels.
+        </p>
+        <img src="./project_page_assets/HeadShapeControl.png" class="center">
+      </div>
 
+      <h3 class="title is-4">Synthesizing Labeled Training Images</h3>
+      <div class="content has-text-justified">
+        <p>
+          In recent years, methods for head label such as landmark and gaze estimation have not yet reached a satisfactory level of performance. This is primarily due to the lack of sufficiently large and diverse labeled training data for the task. Collecting precise and highly varied head labeled data with ground truth, particularly outside of the lab, is a challenging task. In the main manuscript, due to the limited space, we discuss landmark feature in detail. We embed the landmark feature 3D-HeadPoints into the feature design space and fine-tune the pre-trained MetaHead-F on 300W  training images for 2D face alignment task and Face Synthetics for 3D face alignment task, respectively. We show 2D landmark labels in (a) Row 1-3, 3D landmark labels in (a) Row 4 and (b). (a) shows that LabelHead could generate super-realistic heads under challenging scenes and diverse shape and appearance variation with accurate labels. (b) shows that MetaHead-F could synthesize stylized heads with equally accuracy. 
+        </p>
+        <img src="./project_page_assets/LabeledTrainingImages.png" class="center">
+      </div>
+
+      <!-- Landmark Estimation. -->
+      <div class="column">
+        <h4 class="title is-3">Synthesizing Landmark Labeled Training Data</h4>
+        <div class="columns is-centered">
+          <div class="content">
+            <p>
+              Our synthesized heads help label estimation with small amount of real data, and surpasses state-of-the-art landmark-labeled image generation method [45] on head synthesis.
+            </p>
+            <img src="./project_page_assets/LandmarkEstimation.png" class="center">
+          </div>
+        </div> 
+      </div>
+      <!--/ Landmark Estimation. -->
+
+      <!-- Gaze Estimation. -->
+      <div class="column">
+        <h4 class="title is-3">Synthesizing Gaze Labeled Training Data</h4>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              Our synthesized heads help label estimation with small amount of real data on popular gaze benchmarks.
+            </p>
+            <img src="./project_page_assets/GazeEstimation.png" class="center">
+          </div>
+
+        </div>
+      </div>
+      <!-- Gaze Estimation. -->
+    </div>
   </div>
 </section>
 
