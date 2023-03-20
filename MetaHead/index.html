@@ -274,7 +274,7 @@
   <div class="container is-max-desktop">
 
     <!-- MetaHead-F. -->
-    <div class="columns is-centered ">
+    <div class="content has-text-justified">
       <div class="column is-full-width">
         <h2 class="title is-3 has-text-centered" style="margin-top: -30px">MetaHead-F: Super-realistically Reconstruct or Generate View-consistent 3D Controllable Digital Heads</h2>
 
@@ -285,7 +285,7 @@
         </div> -->
         
         <h3 class="title is-4">Common Attributes Control Results</h3>
-        <div class="content has-text-centered">
+        <div class="content has-text-justified">
           <p>
             MetaHead-F provides precise and view-consistent 3D control over the shape and appearance of heads in a highly decoupled manner, including challenging expressions and illumination. In comparison, previous models could only output or control moderate expressions. It can also generate heads in a 3D-aware stylization manner.
           </p>
@@ -304,7 +304,7 @@
         </div>
 
         <h3 class="title is-4">Super-resolution & Hierarchical Structural Attention Module</h3>
-        <div class="content has-text-centered">
+        <div class="content has-text-justified">
           <p>
             Super-resolution module and our proposed hierarchical structure attention module solve the chronic dynamic-scene problem of hair, teeth and beared flickering when the viewing angle changes.
           </p>
@@ -358,7 +358,7 @@
         <p>
           We present qualitative results on single-image reconstruction and attribute control accuracy, comparing our method against four state-of-the-art head synthesis or reconstruction-only methods. In each sub-figure, column 3 displays the reconstruction results, while columns 2 and 4 show the results obtained by controlling the camera poses of the reconstructions. MetaHead-F accurately reconstructs factors covering the shape and appearance of the heads, with precise pose control that is highly view-consistent. During pose editing, only the poses change while the other head properties remain unchanged, demonstrating effective and robust control disentanglement.
         </p>
-        <div class="content has-text-centered">
+        <div class="content has-text-justified">
           <video id="replay-video"
                  autoplay
                  controls
@@ -374,7 +374,7 @@
         <p>
           We present qualitative results on the expression control, comparing our method against the state-of-the-art controllable head synthesis method GAN-Control. For each sub-figure, column 1 shows a reference image, columns 2 to 7 show images generated with random expression control. MetaHead-F generates compelling photo-realistic heads with highly consistent, precise expression control. When controlling expressions for the heads in each row, the other head attributes, such as identity and texture, remain unchanged. Besides, MetaHead-F allows for diverse expression variations, including frowning, pouting, curling lips, smirking, and more.
         </p>
-        <div class="content has-text-centered">
+        <div class="content has-text-justified">
           <video id="replay-video"
                  autoplay
                  controls
@@ -392,7 +392,7 @@
         <p>
           We show ablation experiments on SemanticField, super-resolution module and our proposed conditional supervision head signals.  Studies show that SemanticField precisely control the hair and mouth shape, our proposed identity and expression conditional prior signal enhance the control over fine-grained geometric details(identity and expression), and super-resolution module significantly improves the output visual quality.
         </p>
-        <div class="content has-text-centered">
+        <div class="content has-text-justified">
           <img src="./project_page_assets/Ablation_1.png" class="center">
           <img src="./project_page_assets/Ablation_2.png" class="center">
         </div>
