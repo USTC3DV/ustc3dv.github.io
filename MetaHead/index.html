@@ -483,33 +483,32 @@
   
  
   
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <!-- Approach. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3" style="margin-top: -20px">III.Application</h2>
-      </div>
-      <h3 class="title is-4">Text-to-head Generation and Text-based 3D Head Manipulation</h3>
-        <div class="content has-text-justified">
-          <p style="margin-top: 30px">
-            A natural way to customize 3D heads is to use language guidance. However, discovering semantically meaningful latent manipulations typically involves painstaking human examination of
-            the many degrees of freedom, or an annotated collection of images for each desired manipulation.  We explore leveraging the power of Contrastive Language-Image Pre-training (CLIP) models in order to develop a text-based interface for MetaHead-F image
-            manipulation that does not require such manual effort. Our simple yet efficient approach for leveraging CLIP to guide image manipulation is through direct latent code optimization. As shown in video, one can finely customize the super-realistic
-            3D heads using text descriptions. We can further semantically 3D edit generated heads using text prompts through solving the optimization problem of minimize the cosine distance between the CLIP embeddings of its text and image inputs and the identity loss.
-            As shown in the video, we can achieve a wide variety of disentangled and meaningful control faithful to the text prompt.
-          </p>
-          <video id="replay-video"
-             controls
-             preload
-             playsinline
-             loop
-             width="100%">
-          <source src="./project_page_assets/TextBasedGenerationAndEditing.mp4"
-                type="video/mp4">
-          </video>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h2 class="title is-3" style="margin-top: -20px">III.Application</h2>
         </div>
+        <h3 class="title is-4">Text-to-head Generation and Text-based 3D Head Manipulation</h3>
+          <div class="content has-text-justified">
+            <p style="margin-top: 30px">
+              A natural way to customize 3D heads is to use language guidance. However, discovering semantically meaningful latent manipulations typically involves painstaking human examination of
+              the many degrees of freedom, or an annotated collection of images for each desired manipulation.  We explore leveraging the power of Contrastive Language-Image Pre-training (CLIP) models in order to develop a text-based interface for MetaHead-F image
+              manipulation that does not require such manual effort. Our simple yet efficient approach for leveraging CLIP to guide image manipulation is through direct latent code optimization. As shown in video, one can finely customize the super-realistic
+              3D heads using text descriptions. We can further semantically 3D edit generated heads using text prompts through solving the optimization problem of minimize the cosine distance between the CLIP embeddings of its text and image inputs and the identity loss.
+              As shown in the video, we can achieve a wide variety of disentangled and meaningful control faithful to the text prompt.
+            </p>
+            <video id="replay-video"
+               controls
+               preload
+               playsinline
+               loop
+               width="100%">
+            <source src="./project_page_assets/TextBasedGenerationAndEditing.mp4"
+                  type="video/mp4">
+            </video>
+          </div>
 
       </div>
     </div>
