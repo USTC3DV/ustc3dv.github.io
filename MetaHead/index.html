@@ -458,7 +458,9 @@
       <h3 class="title is-4">Synthesizing Labeled Training Images</h3>
       <div class="content has-text-justified">
         <p>
-          In recent years, methods for head label estimation such as landmark and gaze have not yet reached a satisfactory level of performance. This is primarily due to the lack of sufficiently large and diverse labeled training data for the task. <b>Collecting precise and highly varied head labeled data with ground truth, particularly outside of the lab, is a challenging task.</b> In the main manuscript, due to the limited space, we discuss landmark feature in detail. We embed the landmark feature 3D-HeadPoints into the feature design space and fine-tune the pre-trained MetaHead-F on 300W  training images for 2D face alignment task and Face Synthetics for 3D face alignment task, respectively. We show 2D landmark labels in (a) Row 1-3, 3D landmark labels in (a) Row 4 and (b). (a) shows that LabelHead could generate super-realistic heads under challenging scenes and diverse shape and appearance variation with accurate labels. (b) shows that MetaHead-F could synthesize stylized heads with equally accuracy. 
+          Methods for head label estimation such as landmark and gaze have not yet reached a satisfactory level of performance. This is primarily due to the lack of sufficiently large and diverse labeled training data for the task. <b>Collecting precise and highly varied head labeled data with ground truth, particularly outside of the lab, is a challenging task.</b> In the main manuscript, due to the limited space, we discuss landmark feature in detail. 
+<!--           We embed the landmark feature 3D-HeadPoints into the feature design space and fine-tune the pre-trained MetaHead-F on 300W  training images for 2D face alignment task and Face Synthetics for 3D face alignment task, respectively.  -->
+          We show 2D landmark labels in (a) Row 1-3, 3D landmark labels in (a) Row 4 and (b). (a) shows that LabelHead could generate super-realistic heads under challenging scenes and diverse shape and appearance variation with accurate labels. (b) shows that MetaHead-F could synthesize stylized heads with equally accuracy. 
         </p>
         <img src="./project_page_assets/LabeledTrainingImages.png" class="center">
       </div>
@@ -507,8 +509,9 @@
         <p style="margin-top: 30px">
           A natural way to customize 3D heads is to use language guidance. However, discovering semantically meaningful latent manipulations typically involves painstaking human examination of
           the many degrees of freedom.  We explore leveraging the power of Contrastive Language-Image Pre-training (CLIP) models in order to develop a text-based interface for MetaHead-F image
-          manipulation that does not require such manual effort. Our simple yet efficient approach for leveraging CLIP to guide image manipulation is to perform the direct latent code optimization. As shown in the figure, one can finely customize the super-realistic
-          3D heads using text descriptions. 
+          manipulation that does not require such manual effort. 
+<!--           Our simple yet efficient approach for leveraging CLIP to guide image manipulation is to perform the direct latent code optimization.  -->
+          As shown in the figure, one can finely customize the super-realistic 3D heads using text descriptions. 
         </p>
 <!--         <video id="replay-video"
            autoplay
