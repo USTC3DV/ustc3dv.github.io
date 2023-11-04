@@ -4,11 +4,11 @@ This is the repository that contains source code for the [Nerfies website](https
 
 If you find Nerfies useful for your work please cite:
 ```
-@article{park2021nerfies
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
+@article{kaizhang2020,
+    author    = {Kai Zhang and Gernot Riegler and Noah Snavely and Vladlen Koltun},
+    title     = {NeRF++: Analyzing and Improving Neural Radiance Fields},
+    journal   = {arXiv:2010.07492},
+    year      = {2020},
 }
 ```
 
