@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
-  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+        content="An L0 Model Guided Volume Sampling for NeRF">
+  <meta name="keywords" content="NeRF, Sampling, L0 distance">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>L0-Sampler: An L0 Model Guided Volume Sampling for NeRF</title>
 
@@ -47,7 +47,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title"><L0-Sampler></L0-Sampler>: An L0 Model Guided Volume Sampling for NeRF</h1>
+          <h1 class="title is-1 publication-title">L0-Sampler: An L0 Model Guided Volume Sampling for NeRF</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">Liangchen Li</a><!--<sup>1</sup>--></span>&nbsp;&nbsp;&nbsp;&nbsp;
             </span>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -152,7 +152,7 @@
       <div class="column is-full-width">
         <h2 class="title is-3">Method</h2>
         <div class="content has-text-justified">
-          <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/test_pipeline.png" class="center">
+          <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/pipeline.png" class="center">
           <p style="font-size: 20px;">
             We present the first method capable of photorealistically reconstructing a non-rigidly
             deforming scene using photos/videos captured casually from mobile phones.
@@ -194,35 +194,11 @@
       <div class="column is-three-quarters">
         <h2 class="title is-3">Results</h2>
         <div class="content has-text-justified">
-          <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/RGB_com.png" class="center">
-          <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/geo_com.png" class="center">
           <p style="font-size: 20px;">
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
+            Our proposed sampling approach demonstrates consistent performance enhancements when integrated with NeRF and related tasks like 3D reconstruction.
           </p>
-          <p style="font-size: 20px;">
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
-          </p>
-          <p style="font-size: 20px;">
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
-          </p>
+          <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/fig_syn.png" class="center">
+          <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/fig_geo.png" class="center">
         </div>
       </div>
     </div>
@@ -244,17 +220,15 @@
         <!--<h3 class="title is-4">Interpolating states</h3>-->
         <div class="content has-text-justified">
           <p style="font-size: 20px;">
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
+            Here are the rendering results of NeRF and NeRF w/ our L0-Sampler on the Lego test set. Use the slider here to see the differences in details between them.
           </p>
         </div>
         <div class="columns is-vcentered interpolation-panel">
           <div class="column is-3 has-text-centered">
-            <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/lego_base/000.png"
+            <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/lego_base/059.png"
                  class="interpolation-image"
                  alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
+            <p>NeRF</p>
           </div>
           <div class="column interpolation-video-column">
             <div id="interpolation-image-wrapper">
@@ -265,10 +239,10 @@
                    step="1" min="0" max="100" value="0" type="range">
           </div>
           <div class="column is-3 has-text-centered">
-            <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/lego_base/199.png"
+            <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/lego_L0/059.png"
                  class="interpolation-image"
                  alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
+            <p class="is-bold">w/ L0-Sampler</p>
           </div>
         </div>
 
@@ -314,12 +288,12 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
-}</code></pre>
+    <pre><code>@article{li2023l0sampler,
+      author    = {Li, Liangchen and Zhang, Juyong},
+      title     = {$L_0$-Sampler: An $L_{0}$ Model Guided Volume Sampling for NeRF},
+      journal   = {arXiv:2023.?????},
+      year      = {2023},
+  }</code></pre>
   </div>
 </section>
 
