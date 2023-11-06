@@ -97,8 +97,7 @@
     <div class="hero-body">
       <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/teaser.png" class="center">
       <h2 class="subtitle has-text-centered" style="margin-top: 15px">
-        TL;DR: A semantic parametric model for human head defined with neural radiance field. Multi-level voxel field is adopted as basis with corresponding expression coefficients, which enables strong representation ability on the aspect of rendering and fast training.
-      </h2>
+        We introduce the L0-Sampler, an upgraded version of NeRF's Hierarchical Volume Sampling (HVS) strategy. Through the use of piecewise interpolation, we fit a quasi-L0 w(t). By normalizing this function, we create a PDF that effectively guides inverse transform sampling. With minimal impact on training time and straightforward code modifications, our method consistently enhances rendering quality, making it a valuable addition to the NeRF framework.</h2>
     </div>
   </div>
 </section>
@@ -154,31 +153,21 @@
         <div class="content has-text-justified">
           <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/pipeline.png" class="center">
           <p style="font-size: 18px;">
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
+            During volume rendering, the color weight function w(t), exhibits a unique property known as the 
+            "L0 property": In scenes where a surface S is present, most points in space have a 
+            density of 0, except for the surface points. Consequently, the weight of points along
+            the ray takes on a similar form to the L0 distance between the points and the 
+            surface. To incorporate the L0 property into the weight function, we employ a method
+             of interpolation. In this way, 
+            we obtain a quasi-L0 function that preserves the L0 property to a certain extent 
+            while also considering residual space optimization. 
           </p>
           <p style="font-size: 18px;">
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
-          </p>
-          <p style="font-size: 18px;">
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            The figure above is an overview of our L0-Sampler pipeline. The red dash line presents the surface. During hierarchical volume sampling, 
+            we first uniformly sample points as NeRF in coarse stage, and then through piecewise interpolation, 
+            we fit a w(t) resembling an indicator function, which is in line with the L0 distance between points and surface. 
+            After normalization, it can be used as a PDF to guide inverse transform sampling. 
+            Sampling frequency in each interval (right) shows that our method can make the sampling more focused near the surface.
           </p>
         </div>
       </div>
@@ -195,7 +184,7 @@
         <h2 class="title is-3">Results</h2>
         <div class="content has-text-justified">
           <p style="font-size: 18px;">
-            Our proposed sampling approach demonstrates consistent performance enhancements when integrated with NeRF and related tasks like 3D reconstruction.
+            L0-Sampler demonstrates consistent performance enhancements when integrated with NeRF and related tasks like 3D reconstruction.
           </p>
           <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/fig_syn.png" class="center">
           <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/fig_geo.png" class="center">
@@ -220,7 +209,7 @@
         <!--<h3 class="title is-4">Interpolating states</h3>-->
         <div class="content has-text-justified">
           <p style="font-size: 18px;">
-            Here are the rendering results of NeRF and NeRF w/ our L0-Sampler on the Lego test set. Use the slider here to see the differences in details between them.
+            Here are the rendering results of NeRF and NeRF w/ our L0-Sampler on the Lego test dataset. Use the slider here to see the differences between them in detail.
           </p>
         </div>
         <div class="columns is-vcentered interpolation-panel">
