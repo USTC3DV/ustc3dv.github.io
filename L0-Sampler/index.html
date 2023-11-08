@@ -110,31 +110,25 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p style="font-size: 18px;">
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
+            Since being proposed, Neural Radiance Fields (NeRF) have achieved great 
+            success in related tasks, mainly adopting the hierarchical volume 
+            sampling (HVS) strategy for volume rendering. However, NeRF's HVS 
+            approximates distributions using piecewise constant functions, 
+            which provides a relatively rough estimation. 
           </p>
           <p style="font-size: 18px;">
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
-          </p>
-          <p style="font-size: 18px;">
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            Based on the 
+            observation that a well-trained weight function w(t) and the 
+            L0 distance between points and the surface exists very high 
+            similarity, we propose L0-Sampler by incorporating the L0 
+            model into w(t) to guide the sampling process. Specifically, 
+            we propose to use piecewise exponential function rather than 
+            piecewise constant function for interpolation, which can not only 
+            approximate quasi-L0 weight distributions along rays quite well 
+            but also can be easily implemented with few lines of code without 
+            additional computational burden. By applying L0-Sampler to NeRF 
+            and its related tasks like 3D reconstruction, stable performance 
+            improvements can be achieved.
           </p>
         </div>
       </div>
@@ -186,8 +180,8 @@
           <p style="font-size: 18px;">
             L0-Sampler demonstrates consistent performance enhancements when integrated with NeRF and related tasks like 3D reconstruction.
           </p>
-          <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/fig_syn.png" class="center">
-          <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/fig_geo.png" class="center">
+          <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/whole_com.png" class="center">
+          <!--<img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/fig_geo.png" class="center">-->
         </div>
       </div>
     </div>
@@ -214,7 +208,7 @@
         </div>
         <div class="columns is-vcentered interpolation-panel">
           <div class="column is-3 has-text-centered">
-            <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/lego_base/059.png"
+            <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/lego_inter_base.png"
                  class="interpolation-image"
                  alt="Interpolate start reference image."/>
             <p>NeRF</p>
@@ -228,7 +222,7 @@
                    step="1" min="0" max="100" value="0" type="range">
           </div>
           <div class="column is-3 has-text-centered">
-            <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/lego_L0/059.png"
+            <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/lego_inter_l0.png"
                  class="interpolation-image"
                  alt="Interpolation end reference image."/>
             <p class="is-bold">w/ L0-Sampler</p>
