@@ -64,7 +64,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2011.12948"
+                <a href="https://arxiv.org/pdf/2024.00000"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -117,18 +117,17 @@
             which provides a relatively rough estimation. 
           </p>
           <p style="font-size: 18px;">
-            Based on the 
-            observation that a well-trained weight function w(t) and the 
-            L0 distance between points and the surface exists very high 
-            similarity, we propose L0-Sampler by incorporating the L0 
-            model into w(t) to guide the sampling process. Specifically, 
-            we propose to use piecewise exponential function rather than 
-            piecewise constant function for interpolation, which can not only 
-            approximate quasi-L0 weight distributions along rays quite well 
-            but also can be easily implemented with few lines of code without 
-            additional computational burden. By applying L0-Sampler to NeRF 
-            and its related tasks like 3D reconstruction, stable performance 
-            improvements can be achieved.
+            Based on the observation that a well-trained weight function w(t) 
+            and the L0 distance between points and the surface have very 
+            high similarity, we propose L0-Sampler by incorporating the 
+            L0 model into w(t) to guide the sampling process. 
+            Specifically, we propose to use piecewise exponential functions 
+            rather than piecewise constant functions for interpolation, 
+            which can not only approximate quasi-L0 weight distributions 
+            along rays quite well but also can be easily implemented with few 
+            lines of code without additional computational burden. Stable 
+            performance improvements can be achieved by applying L0-Sampler 
+            to NeRF and its related tasks like 3D reconstruction.
           </p>
         </div>
       </div>
@@ -153,15 +152,18 @@
             the ray takes on a similar form to the L0 distance between the points and the 
             surface. To incorporate the L0 property into the weight function, we employ a method
              of interpolation. In this way, 
-            we obtain a quasi-L0 function that preserves the L0 property to a certain extent 
-            while also considering residual space optimization. 
+            we obtain a quasi-L0 function that balances the optimization of the residual space while preserving the L0 property to a certain degree. 
           </p>
           <p style="font-size: 18px;">
-            The figure above is an overview of our L0-Sampler pipeline. The red dash line presents the surface. During hierarchical volume sampling, 
-            we first uniformly sample points as NeRF in coarse stage, and then through piecewise interpolation, 
-            we fit a w(t) resembling an indicator function, which is in line with the L0 distance between points and surface. 
-            After normalization, it can be used as a PDF to guide inverse transform sampling. 
-            Sampling frequency in each interval (right) shows that our method can make the sampling more focused near the surface.
+            The figure above is an overview of our L0-Sampler pipeline. The red dash line 
+            represents the surface. During hierarchical volume sampling, we 
+            first uniformly sample some points as NeRF in the coarse stage, 
+            and then through piecewise interpolation, we fit a quasi-L0 w(t) 
+            resembling an indicator function, which is in line with the L0 
+            distance between points and surface. After normalization, it can 
+            be used as a PDF to guide inverse transform sampling. 
+            The sampling frequency in each interval (right) shows that our 
+            method can make the sampling more focused near the surface.
           </p>
         </div>
       </div>
@@ -180,8 +182,8 @@
           <p style="font-size: 18px;">
             L0-Sampler demonstrates consistent performance enhancements when integrated with NeRF and related tasks like 3D reconstruction.
           </p>
-          <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/whole_com.png" class="center">
-          <!--<img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/fig_geo.png" class="center">-->
+          <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/fig_syn.png" class="center">
+          <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/fig_geo.png" class="center">
         </div>
       </div>
     </div>
@@ -203,7 +205,7 @@
         <!--<h3 class="title is-4">Interpolating states</h3>-->
         <div class="content has-text-justified">
           <p style="font-size: 18px;">
-            Here are the rendering results of NeRF and NeRF w/ our L0-Sampler on the Lego test dataset. Use the slider here to see the differences between them in detail.
+            Here are the rendering results of NeRF and NeRF w/ our L0-Sampler on the Lego dataset. Use the slider here to see the differences between them in detail.
           </p>
         </div>
         <div class="columns is-vcentered interpolation-panel">
