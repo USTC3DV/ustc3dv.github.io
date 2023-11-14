@@ -106,7 +106,8 @@
     <div class="hero-body">
       <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/teaser.png" class="center">
       <h2 class="subtitle has-text-centered" style="margin-top: 15px">
-        We introduce the L0-Sampler, an upgraded version of NeRF's Hierarchical Volume Sampling (HVS) strategy. Through the use of piecewise interpolation, we fit a quasi-L0 w(t). By normalizing this function, we create a PDF that effectively guides inverse transform sampling. With minimal impact on training time and straightforward code modifications, our method consistently enhances rendering quality, making it a valuable addition to the NeRF framework.</h2>
+        We present L0-Sampler, an upgrade of the Hierarchical Volume Sampling strategy of NeRF. By testing on different data sets, our proposed L0-Sampler with different NeRF frameworks can achieve stable performance improvements on rendering and reconstruction tasks with few lines of code modifications and around the same training time. 
+        Left: Results comparison between works with original HVS and with our L0-Sampler. Right: Instead of using piecewise constant functions when fitting w(t), we use piecewise exponential functions for interpolation to get a quasi-L0 w(t), resulting in more concentrated and precise sampling.</h2>
     </div>
   </div>
 </section>
