@@ -148,6 +148,20 @@ body {
 .interpolation-panel .slider {
   margin: 0 !important;
 }
+.results-carousel {
+  display: flex;
+  overflow: hidden;
+}
+
+.video-item {
+  min-width: 100%;
+  flex-shrink: 0;
+  display: none; 
+}
+
+.video-item.active {
+  display: block; 
+}
 
 #interpolation-image-wrapper {
   width: 100%;

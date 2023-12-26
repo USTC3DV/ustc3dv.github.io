@@ -61,7 +61,6 @@
 
           <div class="is-size-5 publication-authors">
             <span class="author-block">Kaiwen Song</a><sup>1,2</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="author-block">Xiaoyi Zeng</a><sup>1</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
             <span class="author-block">
               <a href="http://staff.ustc.edu.cn/~juyong/">Juyong Zhang</a><sup>1</sup>
             </span>
@@ -113,12 +112,21 @@
               -->
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://ustc3dv.github.io/City-on-Web/"
+                <a href="#real-time-viewer"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-desktop"></i>
                   </span>
-                  <span>Demo</span>
+                  <span>Live-Demo</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/USTC3DV/merfstudio-project"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming Soon)</span>
                   </a>
               </span>
               <!-- Dataset Link. -->
@@ -142,16 +150,34 @@
   </div>
 </section>
 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <div class="item-video video-container">
-        <iframe src="https://www.youtube.com/embed/kegx3Lh65mY?si=SSkfs_bnW3wZxyxB" frameborder="0" allowfullscreen style="width: 800px; height: 450px; margin: 0 auto; display: block;"></iframe>
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <br/>
       </div>
-      <h2 class="subtitle has-text-centered" style="margin-top: 15px">
-       We present City-on-Web, which to our knowledge is the first system that enables real-time neural rendering of large-scale scenes over web using laptop GPUs.
-      </h2>
     </div>
+    <!-- Begin gallery-1. -->
+    <div class="container">
+      <div id="results-carousel1" class="carousel results-carousel">
+        <div class="item g11">
+          <video poster="" id="g11" controls muted loop playsinline height="100%">
+            <source src="https://raw.githubusercontent.com/kevin2000A/City-on-Web/main/assets/campus.compressed.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g12">
+          <video poster="" id="g12" controls muted loop playsinline height="100%">
+            <source src="https://raw.githubusercontent.com/kevin2000A/City-on-Web/main/assets/rubble.mp4"
+                    type="video/mp4">
+          </video>
+      </div>
+    </div>
+
+  <h2 class="subtitle has-text-centered" style="margin-top: 15px">
+    We present City-on-Web, which to our knowledge is the first system that enables real-time neural rendering of large-scale scenes over web using laptop GPUs. The result is tested on the NVIDIA RTX 3060 Laptop GPU with 1920x1080 resolution. 
+  </h2>
+
   </div>
 </section>
 
@@ -224,10 +250,16 @@
           </ul>
         </div>
         <div class="content has-text-centered">
-          <iframe src="https://www.youtube.com/embed/LEW0vdTNc2g?si=wTW9wVMKLBeBAsHR" frameborder="0" allowfullscreen style="width: 800px; height: 450px; margin: 0 auto; display: block;"></iframe>
+          <video id="replay-video"
+                 controls
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="https://raw.githubusercontent.com/kevin2000A/City-on-Web/main/assets/goal.mp4"
+                    type="video/mp4">
           </video>
         </div>
-
       </div>
     </div>
     <!--/ Animation. -->
@@ -249,10 +281,16 @@
           </p>
         </div>
         <div class="content has-text-centered">
-          <iframe src="https://www.youtube.com/embed/rcWQ-vQorw0?si=WjBzPCcYH1QISnmk" frameborder="0" allowfullscreen style="width: 800px; height: 450px; margin: 0 auto; display: block;"></iframe>
+          <video id="replay-video"
+                 controls
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="https://raw.githubusercontent.com/kevin2000A/City-on-Web/main/assets/intro_video.mp4"
+                    type="video/mp4">
           </video>
         </div>
-
       </div>
     </div>
     <!--/ Animation. -->
@@ -334,14 +372,14 @@
 
     <div class="columns is-centered ">
       <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Real-Time Interactive Viewer</h2>
+        <h2 class="title is-3 has-text-centered"  id="real-time-viewer" style="margin-top: -30px">Real-Time Interactive Viewer</h2>
 
 
         <table>
           <tbody>
             <tr>
               <td style="text-align: center;">
-                <a href="https://ustc3dv.github.io/City-on-Web/">
+                <a href="https://cityonweb.github.io/campus/index.html?path=../data">
                   <img src="https://raw.githubusercontent.com/kevin2000A/City-on-Web/main/assets/campus.png" width="400" height="auto" style="margin-right: 100px; margin-bottom: 20px;">
                   <br/>
                   <span style="font-family: 'Adobe Garamond','Arial', sans-serif; font-size: 24px; font-weight: bold; display: inline-block;">Campus</span>
@@ -349,7 +387,7 @@
               </td>
         
               <td style="text-align: center;">
-                <a href="https://ustc3dv.github.io/City-on-Web/">
+                <a href="https://cityonweb.github.io/rubble/index.html?path=../data">
                   <img src="https://raw.githubusercontent.com/kevin2000A/City-on-Web/main/assets/mill.png" width="400" height="auto" style="margin-bottom: 20px; margin-top: 20px;">
                   <br/>
                   <span style="font-family: 'Adobe Garamond','Arial', sans-serif; font-size: 24px; font-weight: bold; display: inline-block;">Rubble</span>
