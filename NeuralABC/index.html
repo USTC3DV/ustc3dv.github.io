@@ -106,11 +106,12 @@
               -->
               <!-- Code Link. -->
               <span class="link-block">
-                <a class="external-link button is-normal is-rounded is-dark disabled">
+                <a href="https://github.com/USTC3DV/NeuralABC-code"
+                  class="external-link button is-normal is-rounded is-dark disabled">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code (Coming Soon)</span>
+                  <span>Code</span>
                   </a>
               </span>
               <!-- Dataset Link. -->
@@ -125,12 +126,14 @@
                   </a>
               </span>
               -->
+
               <span class="link-block">
-                <a class="external-link button is-normal is-rounded is-dark disabled">
+                <a href="https://rec.ustc.edu.cn/share/f0084790-d16c-11ee-b700-9db0c40eaff0" 
+                  class="external-link button is-normal is-rounded is-dark disabled">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Dataset (Coming Soon)</span>
+                  <span>Dataset (passwd:d1sh)</span>
                   </a>
               </span>
 
@@ -154,7 +157,8 @@
       -->
       <img src="./resources/teaser.png" class="center">
       <h2 class="subtitle has-text-centered" style="margin-top: 15px">
-        Neural-ABC is a neural implicit parametric model with latent spaces of human identity, clothing and pose. It can generate various human identities wearing different clothes. The clothed bodies can be driven to different poses.
+        Neural-ABC is a neural implicit parametric model with latent spaces of human identity, clothing, shape and pose. 
+        It can generate various human identities and different clothes. The clothed human body can deform into different body shapes and poses.
       </h2>
     </div>
   </div>
@@ -190,20 +194,19 @@
         <h2 class="title is-3" style="margin-top: -30px">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            In this paper, we introduce Neural-ABC, a novel parametric model based on neural implicit functions that can represent clothed human bodies with disentangled latent spaces for identity, clothing, and pose. 
+            In this paper, we introduce Neural-ABC, a novel parametric model based on neural implicit functions that can represent clothed human bodies with disentangled latent spaces for identity, clothing, shape, and pose. 
             Traditional mesh-based representations struggle to represent articulated bodies with clothes due to the diversity of human body shapes and clothing styles, as well as the complexity of poses. 
             Our proposed model provides a unified framework for 
-            parametric modeling, which can represent the identity, clothing, and pose of the clothed human body.
+            parametric modeling, which can represent the identity, clothing, shape and pose of the clothed human body.
             Our proposed approach utilizes the power of neural implicit functions as the underlying representation and integrates well-designed structures to meet the necessary requirements.
             Specifically, we represent the underlying body as a signed distance function and clothing as an unsigned distance function, and they can be uniformly represented as unsigned distance fields.
             Different types of clothing do not require predefined topological structures or classifications, and can follow changes in the underlying body to fit the body.
             Additionally, we construct poses using a controllable articulated structure. 
             The model is trained on both open and newly constructed datasets, and our decoupling strategy is carefully designed to ensure optimal performance.
-            Our model excels at disentangling clothing and identity in different poses while preserving the style of the clothing. 
+            Our model excels at disentangling clothing and identity in different shape and poses while preserving the style of the clothing. 
             We demonstrate that Neural-ABC fits new observations of different types of clothing. 
             Compared to other state-of-the-art parametric models, Neural-ABC demonstrates powerful advantages in the reconstruction of clothed human bodies,
-            as evidenced by fitting raw scans and depth maps.
-            We show that the attributes of the fitted results can be further edited by adjusting their identities, clothing, and pose codes.
+            as evidenced by fitting raw scans, depth maps and images.
           </p>
         </div>
       </div>
@@ -235,7 +238,7 @@
       <div class="column is-full-width">
         <h2 class="title is-3" style="margin-top: -20px">Method</h2>
 
-        <img src="./resources/pipeline.png" class="center">
+        <img src="./resources/pp_pose.png" class="center">
         <div class="content has-text-justified">
           <p style="margin-top: 30px">
             Overview of our Neural-ABC pipeline. 
@@ -338,7 +341,51 @@
 
         <div class="content has-text-centerd">
           <p>
-            Our method can disentangle generation for identity, clothing and pose.
+            Our method can disentangle generation for identity, clothing, shape and pose.
+          </p>
+        </div>
+
+        <div class="content has-text-centerd">
+          <p>
+            By modifying the four latent codes of identity, shape, clothing, and pose, corresponding clothing body geometry can be generated. 
+            Our four attributes are completely decoupled.s
+          </p>
+        </div>
+
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="./resources/distengle.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+      <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+
+  <div class="container is-max-desktop">
+
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Latent Space Interpolation </h2>
+
+        <div class="content has-text-centerd">
+          <p>
+            Our latent spaces of identity, clothing, shape and pose can be interpolated to obtain continuous generation results. This suggests the continuity of our model. 
           </p>
         </div>
 
@@ -347,7 +394,6 @@
             For designated identities, clothing can be changed smoothly, by only modifying the clothing code.
           </p>
         </div>
-
         <div class="content has-text-centered">
           <video id="replay-video"
                  autoplay
@@ -357,18 +403,16 @@
                  playsinline
                  loop
                  width="100%">
-            <source src="./resources/video2.mp4"
+            <source src="./resources/change_cloth.mp4"
                     type="video/mp4">
           </video>
         </div>
-
 
         <div class="content has-text-centerd">
           <p>
-            For designated clothing, identity can be changed smoothly, by only modifying the identity code.
+            For designated clothed identity, shape can be changed smoothly, by modifying the identity code.
           </p>
         </div>
-
         <div class="content has-text-centered">
           <video id="replay-video"
                  autoplay
@@ -378,16 +422,16 @@
                  playsinline
                  loop
                  width="100%">
-            <source src="./resources/video1.mp4"
+            <source src="./resources/change_shape.mp4"
                     type="video/mp4">
           </video>
         </div>
+
         <div class="content has-text-centerd">
           <p>
-            The designated clothed body can be driven by modifying the pose code.
+            By modifying the identity code, the geometry of the underlying human body can be edited.
           </p>
         </div>
-
         <div class="content has-text-centered">
           <video id="replay-video"
                  autoplay
@@ -397,15 +441,64 @@
                  playsinline
                  loop
                  width="100%">
-            <source src="./resources/video3.mp4"
+            <source src="./resources/change_id.mp4"
                     type="video/mp4">
           </video>
         </div>
-
 
       <!-- </div> -->
       </div>
     </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Ablation Studies. -->
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Fitting and editing</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            We demonstrate the fitting results of Neural-ABC and the editing results after fitting.
+          </p>
+        </div>
+        
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="./resources/Fitting_editing.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="./resources/img_fit_edit.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -459,20 +552,24 @@
   </div>
 </section>
 
+
+
+
+
 <section class="section">
   <div class="container is-max-desktop">
 
     <!-- Ablation Studies. -->
     <div class="columns is-centered ">
       <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Fitting and editing</h2>
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Deformation Refinement</h2>
 
         <div class="content has-text-justified">
           <p>
-            We demonstrate the fitting results of Neural-ABC and the editing results after fitting.
+            The dressed human body geometry obtained from our model can be enhanced with finer clothing details by incorporating additional deformation modules.
+            For the reconstruction results, we can employ non-rigid registration to obtain finer clothing wrinkles. 
           </p>
         </div>
-        
         <div class="content has-text-centered">
           <video id="replay-video"
                  autoplay
@@ -482,7 +579,7 @@
                  playsinline
                  loop
                  width="100%">
-            <source src="./resources/fit_edit.mp4"
+            <source src="./resources/deform_refine.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -490,6 +587,61 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Ablation Studies. -->
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Physics-based Animation</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            The body and clothing fitted using Neural-ABC can be employed with professional animation techniques to generate motion sequences that include intricate wrinkles.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="./resources/Physics_based_Animation.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <div class="content has-text-justified">
+      <p>
+        If you find our paper useful for your work please cite:
+      </p>
+    </div>
+    <pre><code>
+      @article{Chen2024NeuralABC,
+         author = {Honghu Chen, Yuxin Yao, and Juyong Zhang}, 
+         title = {Neural-ABC: Neural Parametric Models for Articulated Body with Clothes}, 
+         journal={IEEE Transactions on Visualization and Computer Graphics},
+         year={2024}，
+         publisher={IEEE}
+    </code></pre>
   </div>
 </section>
 

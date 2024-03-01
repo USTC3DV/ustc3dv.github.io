@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="City-on-Web: Real-time Neural Rendering of Large-scale Scenes on the Web">
+  <meta name="keywords" content="Large-scale Scene Reconstruction, Real-Time Rendering">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>City-on-Web</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Adobe+Garamond&display=swap');
+  </style>
+  <!-- Bootstrap -->
+  <link href="static/css/bootstrap-4.4.1.css" rel="stylesheet">
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h2 class="title is-2 publication-title" style="margin-top: 0; margin-bottom: 2">City-on-Web: Real-time Neural Rendering of Large-scale Scenes on the Web</h2>
+            <!-- <h2 class="title is-4 publication-title" style="margin-top: 0; margin-bottom: 0">SIGGRAPH Asia 2022 (Journal Track)</h2> -->
+          <!-- <h2 class="title is-4 publication-title" style="color:#6e6e6e;margin-top: 2; margin-bottom: 2">SIGGRAPH Asia 2022 (Journal Track)</h2> -->
+          <!-- <h2 class="title is-2 publication-title" style="margin-top: 0"></h2> -->
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Kaiwen Song</a><sup>1,2</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="http://staff.ustc.edu.cn/~juyong/">Juyong Zhang</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Science and Technology of China</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>2</sup>Real-Infinity Inc.</span>&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+
+          <!-- <div class="is-size-6 publication-authors">
+            <span class="author-block">(This work was done when Xuan Gao, Chenglai Zhong and Jun Xiang were intern at Image Derivative Inc.)</span>
+          </div> -->
+
+          <div class="column has-text-centered">
+            <div class="publication-links" style="margin-top: 0; margin-bottom: 2">
+              <!-- PDF Link. -->
+              <!--
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2312.16457"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-alt"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!--
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="#real-time-viewer"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-desktop"></i>
+                  </span>
+                  <span>Live-Demo</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/USTC3DV/merfstudio-project"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming Soon)</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!--
+              <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              </span>
+              -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <br/>
+      </div>
+    </div>
+    <div class="container">
+      
+      <div id="results-carousel1" class="carousel results-carousel">
+        <div class="item g11">
+          <video poster="" id="g11" controls muted loop playsinline height="100%">
+            <source src="https://raw.githubusercontent.com/kevin2000A/City-on-Web/main/assets/campus_short.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g12">
+          <video poster="" id="g12" controls muted loop playsinline height="100%">
+            <source src="https://raw.githubusercontent.com/kevin2000A/City-on-Web/main/assets/rubble_short.mp4"
+                    type="video/mp4">
+          </video>
+      </div>
+      <div class="item g11">
+        <video poster="" id="g11" controls muted loop playsinline height="100%">
+          <source src="https://raw.githubusercontent.com/kevin2000A/City-on-Web/main/assets/matrix_city.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+      <div class="item g11">
+        <video poster="" id="g11" controls muted loop playsinline height="100%">
+          <source src="https://raw.githubusercontent.com/kevin2000A/City-on-Web/main/assets/campus.compressed.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+      <div class="item g12">
+        <video poster="" id="g12" controls muted loop playsinline height="100%">
+          <source src="https://raw.githubusercontent.com/kevin2000A/City-on-Web/main/assets/rubble.mp4"
+                  type="video/mp4">
+        </video>
+    </div>
+    </div>
+
+  <h2 class="subtitle has-text-centered" style="margin-top: 15px">
+    We present City-on-Web, which to our knowledge is the first system that enables real-time neural rendering of large-scale scenes over web using laptop GPUs. The result is tested on the NVIDIA RTX 3060 Laptop GPU with 1920x1080 resolution. 
+  </h2>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered"  id="real-time-viewer" style="margin-top: -30px">Real-Time Interactive Viewer</h2>
+ <div class="content has-text-justified">
+          <p>
+            We only used a part of the Matrix City dataset, so there are holes at the scene boundaries. We will release an updated version that reconstructs using all the images later.
+          </p>
+        </div>
+        <table style="width: 100%; table-layout: fixed;">
+          <tbody>
+            <tr>
+              <!-- Add padding around each cell for spacing -->
+              <td style="text-align: center; padding: 0 20px;"> <!-- Increase padding as needed -->
+                <a href="https://cityonweb.github.io/campus/index.html?path=../data">
+                  <img src="https://raw.githubusercontent.com/kevin2000A/City-on-Web/main/assets/campus.png" width="500" height="300" style="margin-top: 5px;margin-bottom: 20px;">
+                  <br/>
+                  <span style="font-family: 'Adobe Garamond','Arial', sans-serif; font-size: 24px; font-weight: bold;">USTC East Campus</span>
+                </a> 
+              </td>
+        
+              <td style="text-align: center; padding: 0 20px;"> <!-- Increase padding as needed -->
+                <a href="https://cityonweb.github.io/rubble/index.html?path=../data">
+                  <img src="https://raw.githubusercontent.com/kevin2000A/City-on-Web/main/assets/mill.png" width="520" height="300" style="margin-top: 12px; margin-bottom: 20px;">
+                  <br/>
+                  <span style="font-family: 'Adobe Garamond','Arial', sans-serif; font-size: 24px; font-weight: bold;">Mill 19 Rubble</span>
+                </a>
+              </td>
+        
+              <td style="text-align: center; padding: 0 20px;"> <!-- Increase padding as needed -->
+                <a href="https://cityonweb.github.io/city/index.html?path=../data">
+                  <img src="https://raw.githubusercontent.com/kevin2000A/City-on-Web/main/assets/matrix.png" width="450" height="300" style="margin-bottom: 20px;">
+                  <br/>
+                  <span style="font-family: 'Adobe Garamond','Arial', sans-serif; font-size: 24px; font-weight: bold;">Matrix City</span>
+                </a> 
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        
+        
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- 
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <br/>
+      </div>
+    </div>
+    <div class="content has-text-centered">
+      <video id="replay-video"
+             controls
+             preload
+             playsinline
+             loop
+             width="75%">
+        <source src="https://raw.githubusercontent.com/kevin2000A/City-on-Web/main/assets/campus.compressed.mp4"
+                type="video/mp4">
+      </video>
+    </div>
+
+  <h2 class="subtitle has-text-centered" style="margin-top: 15px">
+    We present City-on-Web, which to our knowledge is the first system that enables real-time neural rendering of large-scale scenes over web using laptop GPUs. The result is tested on the NVIDIA RTX 3060 Laptop GPU with 1920x1080 resolution. 
+  </h2>
+
+  </div>
+</section> -->
+<!--
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Reconstructions</h2>
+
+        <div class="embed-responsive embed-responsive-16by9">
+
+          <iframe style="clip-path: inset(1px 1px)" src="https://sketchfab.com/playlists/embed?collection=abee3cc1a7a7436c804f2bd3aadc2acd" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true" width="100%" height="100%" frameborder="0"></iframe>
+        </div>
+        
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+-->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="margin-top: -30px">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            NeRF has significantly advanced 3D scene reconstruction, capturing intricate details across various environments. Existing methods have successfully leveraged radiance field baking to facilitate real-time rendering of small scenes. However, when applied to large-scale scenes, these techniques encounter significant challenges, struggling to provide a seamless real-time experience due to limited resources in computation, memory, and bandwidth. In this paper, we propose City-on-Web, which represents the whole scene by partitioning it into manageable blocks, each with its own Level-of-Detail, ensuring high fidelity, efficient memory management and fast rendering. Meanwhile, we carefully design the training and inference process such that the final rendering result on web is consistent with training. Thanks to our novel representation and carefully designed training/inference process, we are the first to achieve real-time rendering of large-scale scenes in resource-constrained environments. Extensive experimental results demonstrate that our method facilitates real-time rendering of large-scale scenes on a web platform, achieving 32FPS at 1080P resolution with an RTX 3060 GPU, while simultaneously achieving a quality that closely rivals that of state-of-the-art methods.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+    <!-- Paper video. -->
+    <!--
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="margin-top: -20px">Key Idea</h2>
+
+        <div class="content has-text-justified">
+          <ul>
+            <li>High-Fidelity: Partition large-scale scenes into manageable blocks  </li>
+            <li>Real-Time:  Employs radiance field baking and meticulously designed training pipeline that consistent with rendering</li>
+            <li>Seamless Roaming Experience: Dynamic loading of rendering resources by integrating Levels-of-Detail and blocks</li>
+          </ul>
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="https://raw.githubusercontent.com/kevin2000A/City-on-Web/main/assets/goal.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="margin-top: -20px">Training Pipeline</h2>
+        <img src="https://raw.githubusercontent.com/kevin2000A/City-on-Web/main/assets/Pipeline.png" class="center">
+        <div class="content has-text-justified">
+          <p style="margin-top: 30px">
+            We first divide the entire scene into different blocks without overlap according to the ground plane. For the block  that the ray passes through, the corresponding shader renders the color and opacity of each block. We depth sort the blocks that ray traversed, and then render the final result through alpha blending that maintains 3D consistency.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="https://raw.githubusercontent.com/kevin2000A/City-on-Web/main/assets/intro_video.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Results. -->
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">LOD Generation</h2>
+
+        <div class="content has-text-justified">
+          <ul>
+            <li>Thanks to our non-overlapping segmentation strategy, we could directly downsample the  grids and merge multiple blocks to generate lod. </li>
+            <li>For the merged blocks, we first freeze the training of attribute query function and re-training a new deferred MLP. </li>
+            <li>After training the deferred MLP, we proceed to train the deferred MLP and the downsampling model together.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Comparisons. -->
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Comparison with SOTA Method
+        </h2>
+
+        <div class="content has-text-justified">
+          <p>
+          Our method excels in recovering finer details and achieves a higher quality of reconstruction across diverse scales and environments.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="https://raw.githubusercontent.com/kevin2000A/City-on-Web/main/assets/compare_to_sota_1.png" class="center">
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Ablation Studies. -->
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">LOD Result</h2>
+        <div class="content has-text-centered">
+          <img src="https://raw.githubusercontent.com/kevin2000A/City-on-Web/main/assets/LOD.PNG" class="center">
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <div class="content has-text-justified">
+      <p>
+        If you find our paper useful for your work please cite:
+      </p>
+    </div>
+    <pre><code>
+      @article{Gao2022nerfblendshape,
+         author = {Xuan Gao and Chenglai Zhong and Jun Xiang and Yang Hong and Yudong Guo and Juyong Zhang}, 
+         title = {Reconstructing Personalized Semantic Facial NeRF Models From Monocular Video}, 
+         journal = {ACM Transactions on Graphics (Proceedings of SIGGRAPH Asia)}, 
+         volume = {41}, 
+         number = {6}, 
+         year = {2022}, 
+         doi = {10.1145/3550454.3555501} }
+    </code></pre>
+  </div>
+</section> -->
+
+
+
+<!-- <section class="section" id="Acknowledgements">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Acknowledgements</h2>
+    This research was supported by the National Natural Science Foundation of China (No.62122071, No.62272433), and the Fundamental Research Funds for the Central Universities (No. WK3470000021).
+  </div>
+</section> -->
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            This webpage template is from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. 
+            We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing and open-sourcing this template.
+          </p>
+        </div>
+      </div>
+          <p></p>
+        </div>
+      </div>
+</footer>
+
+</body>
+</html>

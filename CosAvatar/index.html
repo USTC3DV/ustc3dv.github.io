@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Reconstructing Personalized Semantic Facial NeRF Models From Monocular Video">
+  <meta name="keywords" content="Blendshape, Neural Radiance Field, Facial
+  Retargting">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CosAvatar</title>
+
+  <!-- Bootstrap -->
+  <link href="static/css/bootstrap-4.4.1.css" rel="stylesheet">
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h2 class="title is-2 publication-title" style="margin-top: 0; margin-bottom: 2">CosAvatar: Consistent and Animatable Portrait Video Tuning with Text Prompt</h2>
+            <!-- <h2 class="title is-4 publication-title" style="margin-top: 0; margin-bottom: 0">SIGGRAPH Asia 2022 (Journal Track)</h2> -->
+          <!-- <h2 class="title is-4 publication-title" style="color:#6e6e6e;margin-top: 2; margin-bottom: 2">SIGGRAPH Asia 2022 (Journal Track)</h2> -->
+          <!-- <h2 class="title is-2 publication-title" style="margin-top: 0"></h2> -->
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Haiyao Xiao</a><sup>1*</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">Chenglai Zhong</a><sup>1*</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">Xuan Gao</a><sup>1</sup>
+            <!-- </span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block"> <a href="https://hy1995.top/">Yang Hong</a>
+              <sup>1</sup> -->
+            </span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block"> <a href="https://yudongguo.github.io/">Yudong Guo</a>
+              <sup>2</sup>
+            </span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="http://staff.ustc.edu.cn/~juyong/">Juyong Zhang</a><sup>1†</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Science and Technology of China</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>2</sup>Image Derivative Inc</span>&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+
+          <!-- <div class="is-size-6 publication-authors">
+            <span class="author-block">(This work was done when Haiyao Xiao and Chenglai Zhong were intern at Image Derivative Inc.)</span>
+          </div> -->
+
+          <div class="column has-text-centered">
+            <div class="publication-links" style="margin-top: 0; margin-bottom: 2">
+              <!-- PDF Link. -->
+              <!--
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2311.18288"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!--
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://ustc3dv.github.io/CosAvatar/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming Soon)</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!--
+              <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              </span>
+              -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div>
+          <video class="video" id="Teaser"  width="50%"  loop playsinline muted src="https://raw.githubusercontent.com/HaiyaoX/project_page_assets/main/driving_x264.mp4" onplay="resizeAndPlay(this)"></video>
+          <canvas width="150" height="150" class="videoMerge" id="TeaserMerge"></canvas>
+    </div>
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Consistent</span> <span class="dnerf">Video</span> <span class="dnerf">Translation</span> with the learned canonical image and deformation. 
+        Slide for comparison. For all the demos, the inputs are provided on the left.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+<!-- Begin gallery. -->
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <br/>
+      </div>
+    </div>
+    <!-- Begin gallery-1. -->
+    <div class="container">
+      <div id="results-carousel1" class="carousel results-carousel">
+        <div class="item g11">
+          <video poster="" id="g11" controls muted loop playsinline height="100%">
+            <source src="https://raw.githubusercontent.com/HaiyaoX/project_page_assets/main/video_demo/zcl_old_x264.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g12">
+          <video poster="" id="g12" controls muted loop playsinline height="100%">
+            <source src="https://raw.githubusercontent.com/HaiyaoX/project_page_assets/main/video_demo/weixiao_elf_x264.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g13">
+          <video poster="" id="g13" controls muted loop playsinline height="100%">
+            <source src="https://raw.githubusercontent.com/HaiyaoX/project_page_assets/main/video_demo/obama_paint_x264.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g14">
+          <video poster="" id="g14" controls muted loop playsinline height="100%">
+            <source src="https://raw.githubusercontent.com/HaiyaoX/project_page_assets/main/video_demo/lady2_oil_x264.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g15">
+          <video poster="" id="g15" controls muted loop playsinline height="100%">
+            <source src="https://raw.githubusercontent.com/HaiyaoX/project_page_assets/main/video_demo/zcl_roman_x264.mp4"
+                    type="video/mp4">
+        </video>
+        </div>
+      </div>
+    </div>
+
+      <!-- Begin gallery-2. -->
+    <div class="container">
+      <div id="results-carousel2" class="carousel results-carousel">
+        <div class="item g21">
+          <video poster="" id="g21" controls muted loop playsinline height="100%">
+            <source src="https://raw.githubusercontent.com/HaiyaoX/project_page_assets/main/video_demo/zcl_mus_x264.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g22">
+          <video poster="" id="g22" controls muted loop playsinline height="100%">
+            <source src="https://raw.githubusercontent.com/HaiyaoX/project_page_assets/main/video_demo/weixiao_brown_x264.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g23">
+          <video poster="" id="g23" controls muted loop playsinline height="100%">
+            <source src="https://raw.githubusercontent.com/HaiyaoX/project_page_assets/main/video_demo/ger3_glasses_x264.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g24">
+          <video poster="" id="g24" controls muted loop playsinline height="100%">
+            <source src="https://raw.githubusercontent.com/HaiyaoX/project_page_assets/main/video_demo/lady1_blue_x264.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g25">
+          <video poster="" id="g25" controls muted loop playsinline height="100%">
+            <source src="https://raw.githubusercontent.com/HaiyaoX/project_page_assets/main/video_demo/weixiao_makeup_x264.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+  <h2 class="subtitle has-text-centered" style="margin-top: 15px">
+    We present CosAvatar, a text-driven portrait editing framework based on monocular dynamic NeRF. It allows for both global style editing (top row) and local attribute editing (bottom row) while ensuring strong consistency. It also enables expressive animation of the edited portrait.
+  </h2>
+
+  </div>
+</section>
+<!-- End gallery. -->
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="https://raw.githubusercontent.com/HaiyaoX/project_page_assets/main/teaser.jpg" class="center">
+      <h2 class="subtitle has-text-centered" style="margin-top: 15px">
+        We present CosAvatar, a text-driven portrait editing framework based on monocular dynamic NeRF. It allows for both (a) global style editing and (b) local attribute editing while ensuring strong consistency. It also enables expressive animation of the edited portrait.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+<!--
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Reconstructions</h2>
+
+        <div class="embed-responsive embed-responsive-16by9">
+
+          <iframe style="clip-path: inset(1px 1px)" src="https://sketchfab.com/playlists/embed?collection=abee3cc1a7a7436c804f2bd3aadc2acd" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true" width="100%" height="100%" frameborder="0"></iframe>
+        </div>
+        
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+-->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="margin-top: -30px">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recently, text-guided digital portrait editing has attracted more and more attentions. However, existing methods still struggle to maintain consistency across time, expression, and view or require specific data prerequisites. To solve these challenging problems, we propose CosAvatar, a high-quality and user-friendly framework for portrait tuning. With only monocular video and text instructions as input, we can produce animatable portraits with both temporal and 3D consistency. Different from methods that directly edit in the 2D domain, we employ a dynamic NeRF-based 3D portrait representation to model both the head and torso. We alternate between editing the video frames' dataset and updating the underlying 3D portrait until the edited frames reach 3D consistency. Additionally, we integrate the semantic portrait priors to enhance the edited results, allowing precise modifications in specified semantic areas. Extensive results demonstrate that our proposed method can not only accurately edit portrait styles or local attributes based on text instructions but also support expressive animation driven by a source video.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+    <!-- Paper video. -->
+    <!--
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="margin-top: -20px">Method</h2>
+
+        <img src="https://raw.githubusercontent.com/HaiyaoX/project_page_assets/main/pipeline.png" class="center">
+        <div class="content has-text-justified">
+          <p style="margin-top: 30px">
+            We train two dynamic neural radiance fields to reconstruct the head and torso region separately based on the tracking coefficient and pose. Once the NeRF model is constructed, we use Instruct-Pix2Pix to generate edited results based on the instruction and progressively update the sequence datasets and NeRF model. In the end, through the utilization of the NeRF-based portrait representation, we are able to produce an editing sequence that maintains temporary coherence and 3D consistency.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="https://raw.githubusercontent.com/HaiyaoX/project_page_assets/main/intro_x264.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Results. -->
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Editing Results</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            our method can handle various text-driven visual editing tasks, including global style editing and attribute editing of portrait local regions. Our method performs well in portrait editing with extreme poses and expressions, generating 3D-consistent and temporally coherent results.
+          </p>
+        </div>
+        <h3 class="title is-4">Global Style Editing</h3>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="https://raw.githubusercontent.com/HaiyaoX/project_page_assets/main/Res_Global_x264.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <h3 class="title is-4">Local Attribute Editing</h3>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="https://raw.githubusercontent.com/HaiyaoX/project_page_assets/main/Res_local_x264.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Comparisons. -->
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Comparison
+        </h2>
+
+        <div class="content has-text-justified">
+          <p>
+            We compare CosAvatar with state-of-the-art video editing methods. By incorporating prior information about the head as guidance, our method accurately captures motion in expression and posture, thereby ensuring temporal consistency in the edited results. Furthermore, our method could achieve accurate editing of the local attributes, particularly the identity of the edited portrait, which is a challenging task for other methods.
+            
+          </p>
+        </div>
+        
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="https://raw.githubusercontent.com/HaiyaoX/project_page_assets/main/Comparison_x264.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Ablation Studies. -->
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Cross-identity Driving</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            By utilizing a NeRF model with FLAME coefficients as conditional inputs, our method enables the direct transfer of facial expressions and head poses from the reference video to the edited portrait.
+          </p>
+        </div>
+        
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="https://raw.githubusercontent.com/HaiyaoX/project_page_assets/main/driving_x264.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <div class="content has-text-justified">
+      <p>
+        If you find our paper useful for your work please cite:
+      </p>
+    </div>
+    <pre><code>
+      @article{Xiao2023CosAvatar,
+        author    = {Xiao, Haiyao and Zhong, Chenglai and Gao, Xuan and Guo, Yudong and Zhang, Juyong},
+        title     = {CosAvatar: Consistent and Animatable Portrait Video Tuning with Text Prompt},
+        journal   = {arXiv:2311.18288},
+        year      = {2023},
+    }
+  }
+    </code></pre>
+  </div>
+</section>
+
+
+
+<!-- <section class="section" id="Acknowledgements">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Acknowledgements</h2>
+    This research was supported by the National Natural Science Foundation of China (No.62122071, No.62272433), and the Fundamental Research Funds for the Central Universities (No. WK3470000021).
+  </div>
+</section> -->
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            This webpage template is from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. 
+            We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing and open-sourcing this template.
+          </p>
+        </div>
+      </div>
+          <p></p>
+        </div>
+      </div>
+</footer>
+
+</body>
+</html>
