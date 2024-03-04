@@ -206,42 +206,42 @@
           </p>
           <div class="code-section">
             <pre><code>def sample_pdf(bins, weights, N_samples, det=False, pytest=False):
-                # Maxblur
-              
-              <span class="added-line">+ weights_pad = torch.cat([weights[..., :1], weights, weights[..., -1:]], axis=-1)</span>
-              <span class="added-line">+ weights_max = torch.maximum(weights_pad[..., :-1], weights_pad[..., 1:])</span>
-              <span class="added-line">+ weights = 0.5 * (weights_max[..., :-1] + weights_max[..., 1:])</span>
-              
-                weights = weights + 1e-5 # prevent nans
+    # Maxblur
+  
+  <span class="added-line">+ weights_pad = torch.cat([weights[..., :1], weights, weights[..., -1:]], axis=-1)</span>
+  <span class="added-line">+ weights_max = torch.maximum(weights_pad[..., :-1], weights_pad[..., 1:])</span>
+  <span class="added-line">+ weights = 0.5 * (weights_max[..., :-1] + weights_max[..., 1:])</span>
+  
+    weights = weights + 1e-5 # prevent nans
           
-                #Get integral
-              <span class="added-line">+ integral = (weights[..., 1:] - weights[..., :-1])/(torch.log(weights[..., 1:]/weights[..., :-1]) + 1e-6)</span>
+    #Get integral
+  <span class="added-line">+ integral = (weights[..., 1:] - weights[..., :-1])/(torch.log(weights[..., 1:]/weights[..., :-1]) + 1e-6)</span>
           
-                # Get pdf
-                pdf = integral / torch.sum(integral, -1, keepdim=True) # Here NeRF uses weights to normalize
-                cdf = torch.cumsum(pdf, -1)
-                cdf = torch.cat([torch.zeros_like(cdf[...,:1]), cdf], -1)
-                                    .
-                                    .
-                                    .
-                matched_shape = [inds_g.shape[0], inds_g.shape[1], cdf.shape[-1]]
-                cdf_g = torch.gather(cdf.unsqueeze(1).expand(matched_shape), 2, inds_g)
-                bins_g = torch.gather(bins.unsqueeze(1).expand(matched_shape), 2, inds_g)
+    # Get pdf
+    pdf = integral / torch.sum(integral, -1, keepdim=True) # Here NeRF uses weights to normalize
+    cdf = torch.cumsum(pdf, -1)
+    cdf = torch.cat([torch.zeros_like(cdf[...,:1]), cdf], -1)
+                        .
+                        .
+                        .
+    matched_shape = [inds_g.shape[0], inds_g.shape[1], cdf.shape[-1]]
+    cdf_g = torch.gather(cdf.unsqueeze(1).expand(matched_shape), 2, inds_g)
+    bins_g = torch.gather(bins.unsqueeze(1).expand(matched_shape), 2, inds_g)
           
-              <span class="deleted-line">- denom = (cdf_g[...,1]-cdf_g[...,0])</span>
-              <span class="deleted-line">- denom = torch.where(denom &lt; 1e-5, torch.ones_like(denom), denom)</span>
-              <span class="deleted-line">- t = (u-cdf_g[...,0])/denom</span>
+  <span class="deleted-line">- denom = (cdf_g[...,1]-cdf_g[...,0])</span>
+  <span class="deleted-line">- denom = torch.where(denom &lt; 1e-5, torch.ones_like(denom), denom)</span>
+  <span class="deleted-line">- t = (u-cdf_g[...,0])/denom</span>
           
-                # Find Roots
-              <span class="added-line">+ residual = u-cdf_g[...,0]</span>
-              <span class="added-line">+ rhs = residual * torch.sum(integral, dim = -1, keepdim = True)</span>
-              <span class="added-line">+ weights_g = torch.gather(weights.unsqueeze(1).expand(matched_shape), 2, inds_g)</span>
-              <span class="added-line">+ denom = torch.log(weights_g[..., 1]/weights_g[..., 0]) + 1e-6</span>
-              <span class="added-line">+ t = torch.log1p(rhs*denom/weights_g[..., 0]) / denom</span>
+    # Find Roots
+  <span class="added-line">+ residual = u-cdf_g[...,0]</span>
+  <span class="added-line">+ rhs = residual * torch.sum(integral, dim = -1, keepdim = True)</span>
+  <span class="added-line">+ weights_g = torch.gather(weights.unsqueeze(1).expand(matched_shape), 2, inds_g)</span>
+  <span class="added-line">+ denom = torch.log(weights_g[..., 1]/weights_g[..., 0]) + 1e-6</span>
+  <span class="added-line">+ t = torch.log1p(rhs*denom/weights_g[..., 0]) / denom</span>
           
-              samples = bins_g[...,0] + t * (bins_g[...,1]-bins_g[...,0])
+  samples = bins_g[...,0] + t * (bins_g[...,1]-bins_g[...,0])
           
-              return samples
+  return samples
             </code></pre>
           </div>        
         </div>
@@ -288,7 +288,7 @@
         </div>
         <div class="columns is-vcentered interpolation-panel">
           <div class="column is-3 has-text-centered">
-            <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/chair_base.gif"
+            <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/lego_inter_base.png"
                  class="interpolation-image"
                  alt="Interpolate start reference image."/>
             <p>NeRF</p>
@@ -310,7 +310,7 @@
         </div>
         
         <!-- Interpolating. -->
-        <!--<h3 class="title is-4">Interpolating states</h3>lego_inter_base.png-->
+        <!--<h3 class="title is-4">Interpolating states</h3>-->
         <!--<div class="columns is-vcentered interpolation-panel">
           <div class="column is-3 has-text-centered">
             <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/lego_inter_base.png"
