@@ -206,10 +206,41 @@
           </p>
           <div class="code-section">
             <pre><code>
-              // Your code goes here
-              function helloWorld() {
-                console.log("Hello, World!");
-              }
+              def sample_pdf(bins, weights, N_samples, det=False, pytest=False):
+              # Maxblur
+              weights_pad = torch.cat([weights[..., :1], weights, weights[..., -1:]], axis=-1)
+              weights_max = torch.maximum(weights_pad[..., :-1], weights_pad[..., 1:])
+              weights = 0.5 * (weights_max[..., :-1] + weights_max[..., 1:])
+              weights = weights + 1e-5 # prevent nans
+          
+              #Get integral
+              integral = (weights[..., 1:] - weights[..., :-1])/(torch.log(weights[..., 1:]/weights[..., :-1]) + 1e-6)
+          
+              # Get pdf
+              pdf = integral / torch.sum(integral, -1, keepdim=True) # Here NeRF uses weights to normalize
+              cdf = torch.cumsum(pdf, -1)
+              cdf = torch.cat([torch.zeros_like(cdf[...,:1]), cdf], -1)
+                                  .
+                                  .
+                                  .
+              matched_shape = [inds_g.shape[0], inds_g.shape[1], cdf.shape[-1]]
+              cdf_g = torch.gather(cdf.unsqueeze(1).expand(matched_shape), 2, inds_g)
+              bins_g = torch.gather(bins.unsqueeze(1).expand(matched_shape), 2, inds_g)
+          
+              denom = (cdf_g[...,1]-cdf_g[...,0])
+              denom = torch.where(denom<1e-5, torch.ones_like(denom), denom)
+              t = (u-cdf_g[...,0])/denom
+          
+              # Find Roots
+              residual = u-cdf_g[...,0]
+              rhs = residual * torch.sum(integral, dim = -1, keepdim = True)
+              weights_g = torch.gather(weights.unsqueeze(1).expand(matched_shape), 2, inds_g)
+              denom = torch.log(weights_g[..., 1]/weights_g[..., 0]) + 1e-6
+              t = torch.log1p(rhs*denom/weights_g[..., 0]) / denom
+          
+              samples = bins_g[...,0] + t * (bins_g[...,1]-bins_g[...,0])
+          
+              return samples
             </code></pre>
           </div>        
         </div>
@@ -277,6 +308,8 @@
           </div>
         </div>
         
+        <!-- Interpolating. -->
+        <!--<h3 class="title is-4">Interpolating states</h3>-->
         <div class="columns is-vcentered interpolation-panel">
           <div class="column is-3 has-text-centered">
             <img src="https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/lego_inter_base.png"
@@ -285,11 +318,11 @@
             <p>NeRF</p>
           </div>
           <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
+            <div id="interpolation-image-wrapper2">
               Loading...
             </div>
             <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
+                   id="interpolation-slider2"
                    step="1" min="0" max="100" value="0" type="range">
           </div>
           <div class="column is-3 has-text-centered">
