@@ -202,20 +202,20 @@
         <h2 class="title is-3">Easy Code</h2>
         <div class="content has-text-justified">
           <p style="font-size: 18px;">
-            L0-Sampler demonstrates consistent performance enhancements when integrated with NeRF and related tasks like 3D reconstruction.
+            Only a few lines of changes were needed in key sections of code to convert NeRF's HVS into ours. For complete code please click <a href="https://github.com/USTC3DV/L0-Sampler-code">HERE</a>.
           </p>
           <div class="code-section">
             <pre><code>def sample_pdf(bins, weights, N_samples, det=False, pytest=False):
     # Maxblur
   
-  <span class="added-line">+ weights_pad = torch.cat([weights[..., :1], weights, weights[..., -1:]], axis=-1)</span>
-  <span class="added-line">+ weights_max = torch.maximum(weights_pad[..., :-1], weights_pad[..., 1:])</span>
-  <span class="added-line">+ weights = 0.5 * (weights_max[..., :-1] + weights_max[..., 1:])</span>
+<span class="added-line">+   weights_pad = torch.cat([weights[..., :1], weights, weights[..., -1:]], axis=-1)</span>
+<span class="added-line">+   weights_max = torch.maximum(weights_pad[..., :-1], weights_pad[..., 1:])</span>
+<span class="added-line">+   weights = 0.5 * (weights_max[..., :-1] + weights_max[..., 1:])</span>
   
     weights = weights + 1e-5 # prevent nans
           
     #Get integral
-  <span class="added-line">+ integral = (weights[..., 1:] - weights[..., :-1])/(torch.log(weights[..., 1:]/weights[..., :-1]) + 1e-6)</span>
+<span class="added-line">+   integral = (weights[..., 1:] - weights[..., :-1])/(torch.log(weights[..., 1:]/weights[..., :-1]) + 1e-6)</span>
           
     # Get pdf
     pdf = integral / torch.sum(integral, -1, keepdim=True) # Here NeRF uses weights to normalize
@@ -228,16 +228,16 @@
     cdf_g = torch.gather(cdf.unsqueeze(1).expand(matched_shape), 2, inds_g)
     bins_g = torch.gather(bins.unsqueeze(1).expand(matched_shape), 2, inds_g)
           
-  <span class="deleted-line">- denom = (cdf_g[...,1]-cdf_g[...,0])</span>
-  <span class="deleted-line">- denom = torch.where(denom &lt; 1e-5, torch.ones_like(denom), denom)</span>
-  <span class="deleted-line">- t = (u-cdf_g[...,0])/denom</span>
+<span class="deleted-line">-   denom = (cdf_g[...,1]-cdf_g[...,0])</span>
+<span class="deleted-line">-   denom = torch.where(denom &lt; 1e-5, torch.ones_like(denom), denom)</span>
+<span class="deleted-line">-   t = (u-cdf_g[...,0])/denom</span>
           
     # Find Roots
-  <span class="added-line">+ residual = u-cdf_g[...,0]</span>
-  <span class="added-line">+ rhs = residual * torch.sum(integral, dim = -1, keepdim = True)</span>
-  <span class="added-line">+ weights_g = torch.gather(weights.unsqueeze(1).expand(matched_shape), 2, inds_g)</span>
-  <span class="added-line">+ denom = torch.log(weights_g[..., 1]/weights_g[..., 0]) + 1e-6</span>
-  <span class="added-line">+ t = torch.log1p(rhs*denom/weights_g[..., 0]) / denom</span>
+<span class="added-line">+   residual = u-cdf_g[...,0]</span>
+<span class="added-line">+   rhs = residual * torch.sum(integral, dim = -1, keepdim = True)</span>
+<span class="added-line">+   weights_g = torch.gather(weights.unsqueeze(1).expand(matched_shape), 2, inds_g)</span>
+<span class="added-line">+   denom = torch.log(weights_g[..., 1]/weights_g[..., 0]) + 1e-6</span>
+<span class="added-line">+   t = torch.log1p(rhs*denom/weights_g[..., 0]) / denom</span>
           
   samples = bins_g[...,0] + t * (bins_g[...,1]-bins_g[...,0])
           
