@@ -1,7 +1,7 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
 var INTERP_BASE = "https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/lego_com";//./static/interpolation/stacked
-var INTERP_L0 = "https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/lego_L0";//./static/interpolation/stacked
+var INTERP_L0 = "https://raw.githubusercontent.com/VVM-hub/project_page_assets/main/L0NeRF_page/figures/lego_com";//./static/interpolation/stacked
 
 var NUM_INTERP_FRAMES = 200;//240
 

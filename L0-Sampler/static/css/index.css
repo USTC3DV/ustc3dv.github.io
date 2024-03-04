@@ -162,3 +162,10 @@ body {
 #interpolation-image-wrapper2 img {
   border-radius: 5px;
 }
+.added-line {
+  background-color: #c8f7c5;
+}
+
+.deleted-line {
+  background-color: #f7c5c5;
+}

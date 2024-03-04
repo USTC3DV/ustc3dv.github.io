@@ -206,6 +206,9 @@
           </p>
           <div class="code-section">
             <pre><code>
+              <span class="added-line">+   const newVariable = "Added line";</span>
+              <span>    const existingVariable = "Unchanged line";</span>
+              <span class="deleted-line">-   const deletedVariable = "Deleted line";</span>
               def sample_pdf(bins, weights, N_samples, det=False, pytest=False):
               # Maxblur
               weights_pad = torch.cat([weights[..., :1], weights, weights[..., -1:]], axis=-1)
