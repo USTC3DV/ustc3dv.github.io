@@ -198,7 +198,7 @@
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-three-quarters">
+      <div class="column is-full-width">
         <h2 class="title is-3">Easy Code</h2>
         <div class="content has-text-justified">
           <p style="font-size: 18px;">
@@ -206,18 +206,18 @@
           </p>
           <div class="code-section">
             <pre><code>
-              <span class="added-line">+   const newVariable = "Added line";</span>
+              <!-- <span class="added-line">+   const newVariable = "Added line";</span>
               <span>    const existingVariable = "Unchanged line";</span>
-              <span class="deleted-line">-   const deletedVariable = "Deleted line";</span>
+              <span class="deleted-line">-   const deletedVariable = "Deleted line";</span> -->
               def sample_pdf(bins, weights, N_samples, det=False, pytest=False):
               # Maxblur
-              weights_pad = torch.cat([weights[..., :1], weights, weights[..., -1:]], axis=-1)
-              weights_max = torch.maximum(weights_pad[..., :-1], weights_pad[..., 1:])
-              weights = 0.5 * (weights_max[..., :-1] + weights_max[..., 1:])
+              <span class="added-line">+   weights_pad = torch.cat([weights[..., :1], weights, weights[..., -1:]], axis=-1)
+              +   weights_max = torch.maximum(weights_pad[..., :-1], weights_pad[..., 1:])
+              +   weights = 0.5 * (weights_max[..., :-1] + weights_max[..., 1:])</span>
               weights = weights + 1e-5 # prevent nans
           
               #Get integral
-              integral = (weights[..., 1:] - weights[..., :-1])/(torch.log(weights[..., 1:]/weights[..., :-1]) + 1e-6)
+              <span class="added-line">+   integral = (weights[..., 1:] - weights[..., :-1])/(torch.log(weights[..., 1:]/weights[..., :-1]) + 1e-6)</span>
           
               # Get pdf
               pdf = integral / torch.sum(integral, -1, keepdim=True) # Here NeRF uses weights to normalize
@@ -230,16 +230,16 @@
               cdf_g = torch.gather(cdf.unsqueeze(1).expand(matched_shape), 2, inds_g)
               bins_g = torch.gather(bins.unsqueeze(1).expand(matched_shape), 2, inds_g)
           
-              denom = (cdf_g[...,1]-cdf_g[...,0])
-              denom = torch.where(denom<1e-5, torch.ones_like(denom), denom)
-              t = (u-cdf_g[...,0])/denom
+              <span class="deleted-line">-   denom = (cdf_g[...,1]-cdf_g[...,0])
+              -   denom = torch.where(denom &lt; 1e-5, torch.ones_like(denom), denom)
+              -   t = (u-cdf_g[...,0])/denom </span>
           
               # Find Roots
-              residual = u-cdf_g[...,0]
-              rhs = residual * torch.sum(integral, dim = -1, keepdim = True)
-              weights_g = torch.gather(weights.unsqueeze(1).expand(matched_shape), 2, inds_g)
-              denom = torch.log(weights_g[..., 1]/weights_g[..., 0]) + 1e-6
-              t = torch.log1p(rhs*denom/weights_g[..., 0]) / denom
+              <span class="added-line">+   residual = u-cdf_g[...,0]
+              +   rhs = residual * torch.sum(integral, dim = -1, keepdim = True)
+              +   weights_g = torch.gather(weights.unsqueeze(1).expand(matched_shape), 2, inds_g)
+              +   denom = torch.log(weights_g[..., 1]/weights_g[..., 0]) + 1e-6
+              +   t = torch.log1p(rhs*denom/weights_g[..., 0]) / denom </span>
           
               samples = bins_g[...,0] + t * (bins_g[...,1]-bins_g[...,0])
           
