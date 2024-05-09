@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Oblique-MERF: Revisiting and Improving MERF for Oblique Photography">
+    <meta name="keywords" content="Scene Reconstruction, Oblique Photography, Real-Time Rendering">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Oblique-MERF</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Adobe+Garamond&display=swap');
+    </style>
+    <!-- Bootstrap -->
+    <link href="static/css/bootstrap-4.4.1.css" rel="stylesheet">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-PYVRSFMDRL');
+    </script>
+
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h2 class="title is-2 publication-title" style="margin-top: 0; margin-bottom: 2">Oblique-MERF: Revisiting and Improving MERF for Oblique Photography</h2>
+                        
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">Xiaoyi Zeng</a><sup>1</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="author-block">Kaiwen Song</a><sup>1</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="author-block">Leyuan Yang</a><sup>1</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="author-block"><a href="http://www.bdeng.me/">Bailin Deng</a><sup>2</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="author-block"><a href="http://staff.ustc.edu.cn/~juyong/">Juyong Zhang</a><sup>1</sup>
+                        </span>
+                        </div>
+                        
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>University of Science and Technology of China</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="author-block"><sup>2</sup>Cardiff University</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links" style="margin-top: 0; margin-bottom: 2">
+                                <!-- Paper Link. -->
+                                <span class="link-block">
+                                    <a href="https://arxiv.org/abs/2404.09531"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+                                <!-- Vedio Link. -->
+                                <span class="link-block">
+                                    <a href="#vedio"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-youtube"></i>
+                                        </span>
+                                        <span>Vedio</span>
+                                    </a>
+                                </span>
+                                <!-- Demos Link. -->
+                                <span class="link-block">
+                                    <a href="#real-time-viewer"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-desktop"></i>
+                                        </span>
+                                        <span>Demos</span>
+                                    </a>
+                                </span>
+                                <!-- Code Link. -->
+                                <!-- <span class="link-block">
+                                    <a href="https://github.com/USTC3DV/merfstudio-project"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code (Coming Soon)</span>
+                                    </a>
+                                </span> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+          <div class="hero-body">
+            <img src="https://raw.githubusercontent.com/Oblique-MERF/Oblique-MERF.github.io/main/assets/teaser.png" class="center">
+            <h2 class="subtitle has-text-centered" style="margin-top: 15px">
+                Oblique-MERF enables real-time synthesis of novel views for oblique photography on diverse commodity devices, including tests on an NVIDIA GTX 1650 and an iPhone 14 Pro Max (left). 
+                We introduce a novel compact sampling representation that markedly reduces sampling points and emphasizes significant regions, enhancing rendering quality and increasing frame rates. 
+                We present the rendering output and the visualization of the number of samples (right).
+            </h2>
+          </div>
+        </div>
+    </section>
+
+    <!-- Abstract. -->
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3" style="margin-top: -30px">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            Implicit neural radiance fields (NeRF) have established a new paradigm for scene representation, with subsequent work achieving high-quality real-time rendering. 
+                            However, reconstructing 3D scenes from oblique aerial photography presents unique challenges, such as varying spatial scale distributions and a constrained range of tilt angles, often resulting in high memory consumption and reduced rendering quality at extrapolated viewpoints. 
+                            In this paper, we improve MERF to accommodate the specific characteristics of oblique photography datasets to address these issues. Firstly, an innovative adaptive occupancy plane is integrated into the volume rendering process to constrain the sampling space. 
+                            Additionally, we propose a smoothness regularization term for view-dependent color to strengthen the Defered MLP's ability to generalize to untrained viewpoints. 
+                            Our approach, termed Oblique-MERF, surpasses the baseline method by approximately 0.8 dB, reduces VRAM usage by about 40%, and achieves higher rendering frame rates with more realistic rendering outcomes across most viewpoints.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video -->
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3"  id="vedio"  style="margin-top: -30px">Video</h2>
+                    <div class="content has-text-centered">
+                        <video id="replay-video" controls preload playsinline loop width="100%">
+                        <source src="https://raw.githubusercontent.com/Oblique-MERF/Oblique-MERF.github.io/main/assets/method.mp4"
+                                type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pipeline. -->
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3" style="margin-top: -30px">Pipeline</h2>
+                    <img src="https://raw.githubusercontent.com/Oblique-MERF/Oblique-MERF.github.io/main/assets/pipeline.png" class="center">
+                    <div class="content has-text-justified">
+                        <p style="margin-top: 30px">
+                            During training, we introduce a 2D plane to represent the occupied space as a sandwiched region between two height field surfaces. 
+                            For sampling points on rays, occupancy masks retrieved from the occupancy plane, are used as multipliers in the volume rendering process. 
+                            Additionally, we incorporate a smoothness regularization for view-dependent color to minimize variations in specular color with viewing direction. 
+                            Post-training, spatial occupancy information is directly extracted from the occupancy plane, and corresponding features are stored for real-time rendering.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Demos. -->
+            <div class="columns is-centered ">
+                <div class="column is-full-width">
+                    <h2 class="title is-3 has-text-centered" id="real-time-viewer" style="margin-top: -30px">Real-Time Interactive Viewer</h2>
+                    <table style="width: 80%; table-layout: fixed; margin-left: 80px;">
+                        <tbody>
+                            <tr>
+                                <!-- Add padding around each cell for spacing -->
+                                <td style="text-align: center; padding: 0 0px;">
+                                    <!-- Increase padding as needed -->
+                                    <a href="https://oblique-merf.github.io/select_quality/?scene=ustc1">
+                                        <img src="https://raw.githubusercontent.com/Oblique-MERF/Oblique-MERF.github.io/main/assets/campus.png" width="300" height="300" style="margin-top: 5px;margin-bottom: 20px;">
+                                        <br/>
+                                        <span style="font-family: 'Adobe Garamond','Arial', sans-serif; font-size: 24px; font-weight: bold;">Campus-Oblique</span>
+                                    </a>
+                                </td>
+
+                                <td style="text-align: center; padding: 0 0px;">
+                                    <!-- Increase padding as needed -->
+                                    <a href="https://oblique-merf.github.io/select_quality/?scene=matrixa">
+                                        <img src="https://raw.githubusercontent.com/Oblique-MERF/Oblique-MERF.github.io/main/assets/matrix.png" width="300" height="500" style="margin-top: 20px; margin-bottom: 20px;">
+                                        <br/>
+                                        <span style="font-family: 'Adobe Garamond','Arial', sans-serif; font-size: 24px; font-weight: bold;">Matrix City</span>
+                                    </a>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered ">
+                <div class="column is-full-width">
+                    <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Results</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            We compare our Oblique-MERF with recent offline and real-time methods on Campus-Oblique and Matrix City Datasets.
+                        </p>
+                    </div>
+                    <div class="content has-text-centered">
+                        <img src="https://raw.githubusercontent.com/Oblique-MERF/Oblique-MERF.github.io/main/assets/compare.jpg"  width="1000" height="300" class="center">
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Comparison with MERF -->
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered ">
+                <div class="column is-full-width">
+                    <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Comparison with MERF</h2>
+                    <div class="content has-text-justified">
+                        <p style="margin-top: 30px">
+                            We show the visualization of Oblique-MERF and the baseline MERF for real-time rendering and sampling point distribution.
+                        </p>
+                    </div>
+                    <div class="content has-text-centered">
+                        <video id="replay-video" controls preload playsinline loop width="100%">
+                        <source src="https://raw.githubusercontent.com/Oblique-MERF/Oblique-MERF.github.io/main/assets/result1.mp4"
+                                type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="content has-text-justified">
+                        <p style="margin-top: 30px">
+                            We compare the real-time rendering performance of Oblique-MERF and MERF on iPhone14 ProMax and GeForce GTX 1650.
+                        </p>
+                    </div>
+                    <div class="content has-text-centered">
+                        <video id="replay-video" controls preload playsinline loop width="100%">
+                        <source src="https://raw.githubusercontent.com/Oblique-MERF/Oblique-MERF.github.io/main/assets/result2.mp4"
+                                type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <div class="content has-text-justified">
+                <p>
+                    If you find our paper useful for your work please cite:
+                </p>
+            </div>
+            <pre><code>
+                @article{zeng2024oblique,
+                    title={Oblique-MERF: Revisiting and Improving MERF for Oblique Photography},
+                    author={Zeng, Xiaoyi and Song, Kaiwen and Yang, Leyuan and Deng, Bailin and Zhang, Juyong},
+                    journal={arXiv preprint arXiv:2404.09531},
+                    year={2024}
+                  }
+            </code></pre>
+        </div>
+    </section>
+
+    <section class="section" id="Acknowledgements">
+        <div class="container is-max-desktop content">
+          <h2 class="title">Acknowledgements</h2>
+          This research was supported by the National Natural Science Foundation of China (No.62122071, No.62272433), the Youth Innovation Promotion Association CAS (No. 2018495) and the Fundamental Research Funds for the Central Universities (No. WK3470000021).
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered"></div>
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p>
+                            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. This webpage template is from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+                            We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing and open-sourcing this template.
+                        </p>
+                    </div>
+                </div>
+                <p></p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
