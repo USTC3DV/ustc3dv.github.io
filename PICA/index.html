@@ -290,12 +290,12 @@
     <!-- Comparisons. -->
     <div class="columns is-centered ">
       <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Training
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Ablation
         </h2>
 
         <div class="content has-text-justified">
           <p>
-            We achieve a remarkable rendering speed over 300FPS. Meanwhile, we demonstrate that our training process is super efficient as well. We are able to recover the coarse appearance of head in several seconds and reconstruct the photo-realistic avatar with fine hair strands and textures within a couple of minutes. We conduct both training and inference on a single Nvidia RTX 3090.            
+            We evaluate the double layer representation, pose-dependent color, some regular loss terms and the number of input views in our algorithm.            
           </p>
         </div>
         
@@ -326,11 +326,11 @@
     <!-- Ablation Studies. -->
     <div class="columns is-centered ">
       <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Novel View Synthesis</h2>
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Novel Pose Animation</h2>
 
         <div class="content has-text-justified">
           <p>
-            The basic representation of 3D head avatars in our method is pure non-neural 3D Gaussians, so we can freely adjust the global camera pose to generate target results with any desired rendering view.
+            We show some novel pose animation results here. The pose sequences are from ActorsHQ dataset and AMASS.
           </p>
         </div>
         
@@ -353,54 +353,35 @@
   </div>
 </section>
 
-<!-- <section class="hero is-light is-small">
-  <div class="hero-body"> -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered" style="margin-top: -30px">More Results</h2>
-    <!-- Begin gallery-1. -->
-    <div class="container">
-      <div id="results-carousel1" class="carousel results-carousel">
-        <div class="item g11">
-          <video poster="" id="g11" controls muted loop playsinline height="100%">
-            <source src="https://raw.githubusercontent.com/xiangjun-xj/project_page_assets/master/FlashAvatar/id3_12.mp4"
+
+    <!-- Ablation Studies. -->
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Application</h2>
+
+        <div class="content has-text-justified">
+          <p>
+             PICA is capable of replacing the clothes and animating the newly dressed avatars.
+          </p>
+        </div>
+        
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="https://raw.githubusercontent.com/xiangjun-xj/project_page_assets/master/FlashAvatar/nvs.mp4"
                     type="video/mp4">
           </video>
         </div>
-        <div class="item g12">
-          <video poster="" id="g12" controls muted loop playsinline height="100%">
-            <source src="https://raw.githubusercontent.com/xiangjun-xj/project_page_assets/master/FlashAvatar/person0_12.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item g13">
-          <video poster="" id="g13" controls muted loop playsinline height="100%">
-            <source src="https://raw.githubusercontent.com/xiangjun-xj/project_page_assets/master/FlashAvatar/id5_12.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item g14">
-          <video poster="" id="g14" controls muted loop playsinline height="100%">
-            <source src="https://raw.githubusercontent.com/xiangjun-xj/project_page_assets/master/FlashAvatar/malte_12.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <!-- <div class="item g15">
-          <video poster="" id="g15" controls muted loop playsinline height="100%">
-            <source src="https://raw.githubusercontent.com/HaiyaoX/project_page_assets/main/video_demo/zcl_roman_x264.mp4"
-                    type="video/mp4">
-        </video>
-        </div> -->
+
       </div>
     </div>
-  <!-- <h2 class="subtitle has-text-centered" style="margin-top: 15px">
-    We present CosAvatar, a text-driven portrait editing framework based on monocular dynamic NeRF. It allows for both global style editing (top row) and local attribute editing (bottom row) while ensuring strong consistency. It also enables expressive animation of the edited portrait.
-  </h2> -->
-  <div class="content has-text-justified">
-    <p>
-      In this paper, we have proposed FlashAvatar, which tightly combines a non-neural Gaussian-based radiance field with an explicit parametric face model and takes full advantage of their respective strengths. As a result, it can reconstruct a digital avatar from a monocular video in minutes and animate it at 300FPS while achieving photo-realistic rendering with full personalized details. Its efficiency, robustness, and representation ability have also been verified by extensive experimental results.
-    </p>
-  </div>
 
   </div>
 </section>
@@ -409,7 +390,7 @@
 
 
 
-<section class="section" id="BibTeX">
+<!-- <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <div class="content has-text-justified">
@@ -426,16 +407,16 @@
       }
     </code></pre>
   </div>
-</section>
+</section> -->
 
 
 
-<section class="section" id="Acknowledgements">
+<!-- <section class="section" id="Acknowledgements">
   <div class="container is-max-desktop content">
     <h2 class="title">Acknowledgements</h2>
     This work was supported by the National Natural Science Foundation of China (No. 62122071, No. 62272433) and the Youth Innovation Promotion Association CAS (No. 2018495).
   </div>
-</section>
+</section> -->
 
 
 
