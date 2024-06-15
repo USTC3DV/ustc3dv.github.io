@@ -1,0 +1,518 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+  <title>PortraitGen</title>
+  
+  <meta name="author" content="Xuan Gao">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- <link rel="icon" type="image/png" href="./assests/gene.png"> -->
+
+  <link rel="stylesheet" type="text/css" href="./css/slick.css">
+  <link rel="stylesheet" type="text/css" href="./css/slick-theme.css">
+  <link rel="stylesheet" href="./css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./css/bulma.min.css">
+  <!-- <link rel="stylesheet" href="./css/font-awesome.min.css"> -->
+  <link rel="stylesheet" href="./css/codemirror.min.css">
+  <link rel="stylesheet" href="./css/app.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./css/glide.core.min.css">
+  <link rel="stylesheet" href="./css/glide.theme.min.css">
+  <link rel="stylesheet" href="./css/glide-custom.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <!-- <link rel="stylesheet" href="./css/bootstrap.min.css"> -->
+  <script src="./js/handlers.js"></script>
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/codemirror.min.js"></script>
+  <script src="./js/clipboard.min.js"></script>
+  <script src="./js/video_comparison.js"></script>
+  <script src="./js/bulma-slider.min.js"></script>
+  <script src="./js/bulma-carousel.min.js"></script>
+  <script src="./js/main.js"></script>
+  <!-- <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script> -->
+  <script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+  </script>
+
+  <script src="./js/glide.min.js"></script>
+  <script>
+      window.onload = function () {
+          new Glide("#dynamic-carousel-geometry-insta", {
+              type: "slider",
+              perView: 3.0,
+              focusAt: "center",
+              autoplay: 20000,
+              hoverpause: true
+          }).mount();
+          new Glide("#dynamic-carousel-geometry-nerfblendshape", {
+              type: "slider",
+              perView: 3.0,
+              focusAt: "center",
+              autoplay: 20000,
+              hoverpause: true
+          }).mount();
+          new Glide("#dynamic-carousel-geometry-next3d", {
+              type: "slider",
+              perView: 3.0,
+              focusAt: "center",
+              autoplay: 20000,
+              hoverpause: true
+          }).mount();
+          new Glide("#dynamic-carousel-appearance-insta", {
+              type: "slider",
+              perView: 3.0,
+              focusAt: "center",
+              autoplay: 20000,
+              hoverpause: true
+          }).mount();
+          new Glide("#dynamic-carousel-appearance-paint-insta", {
+              type: "slider",
+              perView: 3.0,
+              focusAt: "center",
+              autoplay: 20000,
+              hoverpause: true
+          }).mount();
+          new Glide("#dynamic-carousel-appearance-nerfblendshape", {
+              type: "slider",
+              perView: 3.0,
+              focusAt: "center",
+              autoplay: 20000,
+              hoverpause: true
+          }).mount();
+          new Glide("#dynamic-carousel-appearance-next3d", {
+              type: "slider",
+              perView: 3.0,
+              focusAt: "center",
+              autoplay: 20000,
+              hoverpause: true
+          }).mount();
+          new Glide("#dynamic-carousel-hybrid", {
+              type: "slider",
+              perView: 3.0,
+              focusAt: "center",
+              autoplay: 3000,
+              hoverpause: true
+          }).mount();
+          new Glide("#dynamic-carousel-reenactment", {
+              type: "slider",
+              perView: 3.0,
+              focusAt: "center",
+              autoplay: 3000,
+              hoverpause: true
+          }).mount();
+          new Glide("#static-carousel", {
+              type: "slider",
+              perView: 3.0,
+              focusAt: "center",
+              autoplay: 3000,
+              hoverpause: true
+          }).mount();
+          new Glide("#realtime-carousel", {
+              type: "slider",
+              perView: 3.0,
+              focusAt: "center",
+              autoplay: 3000,
+              hoverpause: true
+          }).mount();
+      };
+  </script>
+
+<link rel="stylesheet" type="text/css" href="index.css">
+<link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+    rel="stylesheet">
+
+</head>
+
+<body style="width: 100%;">
+<div class="video-box", id="video-box">
+        <div class="cc rowup">
+        <div class="video-column">
+            <!-- https://raw.githubusercontent.com/Pbb-land/project_page_assets/master/PICA/application_x264.mp4 -->
+            <video  autoplay muted loop> <source src="workspace2/27_ivan_relight_video.mp4" type="video/mp4"> Your browser does not support the video tag.  </video>
+            <video  autoplay muted loop> <source src="workspace2/person0_video.mp4" type="video/mp4"> Your browser does not support the video tag.  </video>
+            <video  autoplay muted loop> <source src="workspace2/weixiao_tryon_video.mp4" type="video/mp4"> Your browser does not support the video tag.  </video>
+        </div>
+        <div class="video-column">
+            <video  autoplay muted loop> <source src="workspace2/weixiao_text1_video.mp4" type="video/mp4"> Your browser does not support the video tag.  </video>
+            <video  autoplay muted loop> <source src="workspace2/cameron_tryon_video.mp4" type="video/mp4"> Your browser does not support the video tag.  </video>
+            <video  autoplay muted loop> <source src="workspace2/id1_text_video.mp4" type="video/mp4"> Your browser does not support the video tag.  </video>
+        </div>
+        <div class="video-column">
+            <video  autoplay muted loop> <source src="workspace2/body_video.mp4" type="video/mp4"> Your browser does not support the video tag.  </video>
+
+            <video  autoplay muted loop> <source src="workspace2/obm_video.mp4" type="video/mp4"> Your browser does not support the video tag.  </video>
+            <video  autoplay muted loop> <source src="workspace2/qzr1_video.mp4" type="video/mp4"> Your browser does not support the video tag.  </video>
+            
+        </div>
+        <div class="video-column">
+            <video  autoplay muted loop> <source src="workspace2/27_ivan_text_video.mp4" type="video/mp4"> Your browser does not support the video tag.  </video>
+            <video  autoplay muted loop> <source src="workspace2/weixiao_text2_video.mp4" type="video/mp4"> Your browser does not support the video tag.  </video>
+            <video  autoplay muted loop> <source src="workspace2/theresa_text_video.mp4" type="video/mp4"> Your browser does not support the video tag.  </video>
+        </div>
+        <div class="video-column">
+            <video  autoplay muted loop> <source src="workspace2/zcl_video.mp4" type="video/mp4"> Your browser does not support the video tag.  </video>
+            <video  autoplay muted loop> <source src="workspace2/diana_video.mp4" type="video/mp4"> Your browser does not support the video tag.  </video>
+            <video  autoplay muted loop> <source src="workspace2/zzy3_video.mp4" type="video/mp4"> Your browser does not support the video tag.  </video>
+        </div>
+    </div>
+</div>
+
+<div class="title-mask", id="title-mask">
+
+<!-- <div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">More Research <i class="fa fa-caret-down"></i></button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="https://zju3dv.github.io/object_nerf">Object-NeRF</a>
+    <a href="https://zju3dv.github.io/nr_in_a_room">Neural Rendering in a Room</a>
+    <a href="https://zju3dv.github.io/neural_outdoor_rerender">Neural Outdoor Re-Rendering</a>
+    <a href="https://zju3dv.github.io/neumesh/">NeuMesh</a>
+    <a href="https://zju3dv.github.io/sine">SINE</a>
+</a>
+  </div>
+</div> -->
+
+    <div style="position: absolute; top:20%; left: 0; right: 0;">
+    
+    <h1 class="publication-title">
+        <style>
+            .title_img {
+                display: block;       /* 将img视为块级元素 */
+                margin: auto;         /* 自动外边距实现水平居中 */
+                width: 20%;           /* 图片宽度为父元素的20% */
+            }
+        </style>
+        <!-- <img class="title_img" style="width: 40%;" src="resources/test_title.png" alt="pipeline"/> -->
+        <span class="title-gradient-text" style="font-size: 100px;text-shadow: 0.01em -0.01em rgba(251, 255, 2, 0.634);">PortraitGen</span><br />
+        <font style="color: rgb(255, 255, 255);text-shadow: 0.05em -0.05em rgba(255, 200, 160, 0.634);">Portrait</font> Video Editing <br /> Empowered by <br />Multimodal Generative Priors  </h1>
+        <!-- <h1>Portrait Video Editing Empowered by Multimodal Generative Priors</h1>   -->
+        <!-- <p style="font-size: 24px; color: #fff;"> CVPR 2024</p> -->
+        <div class="publication-authors">
+            <span class="author-block">
+                <a href="https://xuanghahahaha.github.io/" target="_blank">Xuan Gao</a>,
+            </span>
+            <span class="author-block">
+                Haiyao Xiao,
+            </span>
+            <span class="author-block">
+                Chenglai Zhong,
+            </span>
+            <span class="author-block">
+                Shimin Hu,
+            </span>
+            <span class="author-block">
+                <a href="https://yudongguo.github.io/" target="_blank">Yudong Guo</a>,
+            </span>
+            <span class="author-block">
+                <a href="http://staff.ustc.edu.cn/~juyong/" target="_blank">Juyong Zhang</a>,
+            </span>
+        </div>
+        <br>
+        <div class="publication-authors">
+            <span class="author-block">University of Science and Technology of China</span>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div id="button-list">
+            <span class="link-button">
+                <a class="link-button-content", href="">
+                    <span>
+                        <svg class="svg-inline--fa fa-file-pdf fa-w-12" style="position: relative; top: 0.15em;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg>
+                    </span>
+                    &nbsp;
+                    Paper
+                </a>
+            </span>
+            <span class="link-button">
+                <a class="link-button-content", href="">
+                    <span>
+                    <span class="icon-arxiv"></span>
+                    </span>
+                    &nbsp;
+                    Arxiv
+                </a>
+            </span>
+            <span class="link-button">
+                <a class="link-button-content" href="", target="_blank">
+                    <span>
+                        <svg class="svg-inline--fa fa-file-pdf" aria-hidden="true" version="1.1" viewBox="0 0 16 16" width="1.2em" style="position: relative; top: 0.25em;"><path fill="currentColor" fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+                    </span>
+                    &nbsp; 
+                    Code (Coming Soon!)
+                </a>
+            </span>
+        </div>
+
+    </div>
+    <div class="click" id="scroll-btn">
+        <div class="circle-breath"></div>
+    </div>
+    <div class="click">
+        <p>Click to learn more</p>
+    </div>
+</div>
+<div style="background-color: rgb(255, 255, 255); margin-right: auto; margin-left: auto;">
+    <a name="user_pipeline"></a>
+    <div class="root-content" style="padding-top: 10px; width:40%">
+        <div class="content has-text-justified"></div>
+        <h1>Abstract</h1>
+        <p class="section-content-text" style="padding-bottom: 20px;">
+            We introduce PortraitGen, a powerful portrait video editing method that achieves consistent and expressive stylization with multimodal prompts. Traditional approaches to portrait video editing often struggle with maintaining 3D and temporal consistency and fall short in rendering quality and efficiency. To tackle these issues, we lift the portrait video frames to a unified dynamic 3D Gaussian field, ensuring structural and temporal consistency across editing frames. Furthermore, we design a novel Neural Gaussian texture mechanism that not only enables sophisticated style editing but also achieves rendering speed over 100FPS. To facilitate faithful editing with multimodal inputs, we distill the editing knowledge from 2D large generative models. Our system also incorporates expression similarity guidance and a face-aware portrait editing module, effectively mitigating degradation issues associated with iterative dataset updates. Extensive experiments demonstrate the temporal consistency, editing efficiency, and superior rendering quality of our method. The broad applicability of the proposed approach is demonstrated through various applications, including text-driven editing, image-driven editing, and relighting, highlighting its great potential to advance the field of video editing.
+        </p>
+    </div>
+</div>
+<br>
+<br>
+<div style="background-color: white; margin-right: auto; margin-left: auto;">
+    <div class="root-content" style="padding-top: 10px;">
+        <h1>Method</h1>
+        <img style="width: 100%;" src="https://raw.githubusercontent.com/XuanGhahahaha/project_page_assets/master/PortraitGen/resources/pipe.png"
+        alt="pipeline"/>
+        <p class="section-content-text" style="padding-bottom: 20px;">
+        We first track the SMPL-X coefficients of the given monocular video, and then use a Neural Gaussian Texture mechanism to get a 3D Gaussian feature field. These neural Gaussians are further splatted to render portrait images. An iterative dataset update strategy is applied for portrait editing, and a Multimodal Face Aware Editing module is proposed to enhance expression quality and preserve personalized facial structures.
+        </p>
+      <video id="teaser" controls loop playsinline height="100%",  style="margin:auto; right: 0; left: 0; width: 100%; display: inline;">
+        <source src="https://raw.githubusercontent.com/XuanGhahahaha/project_page_assets/master/PortraitGen/resources/method.mp4"
+                type="video/mp4">
+      </video>
+
+    </div>
+</div>
+
+<div style="background-color: white; margin-right: auto; margin-left: auto;">
+    <div class="root-content" style="padding-top: 10px;">
+        <h1>Multimodal Portrait Editing
+        </h1>
+        <p class="section-content-text" style="padding-bottom: 20px;">
+            Our scheme is a unified portrait video editing framework. Any structure preserving image editing model could be used to synthesize a 3D consistent and temporally coherent portrait video.
+        </p>
+        <h2 style="text-align: left;">Text Driven Editing</h2>
+        <p class="section-content-text" style="padding-bottom: 20px;">
+            We use <a href="https://www.timothybrooks.com/instruct-pix2pix/">InstructPix2Pix</a> as 2D editing model. Its UNet takes three inputs: an input RGB image, a text instruction and noised latent. We add partial noise to rendered image and edit it based on input source image and instruction.
+        </p>
+
+      <video id="teaser" controls loop playsinline height="100%",  style="margin:auto; right: 0; left: 0; width: 100%; display: inline;">
+        <source src="https://raw.githubusercontent.com/XuanGhahahaha/project_page_assets/master/PortraitGen/resources/result_text_compact.mp4"
+                type="video/mp4">
+      </video>
+
+      <h2 style="text-align: left;">Image Driven Editing</h2>
+      <p class="section-content-text" style="padding-bottom: 20px;">
+        We focus on two kinds of editing works based on image prompt. One kind is to extract the global style of a reference image and another aims to customize an image by placing an object at a specific location. These approaches are utilized in our experiments for style transfer and virtual try-on. We use a <a href="https://github.com/tjwhitaker/a-neural-algorithm-of-artistic-style">Neural Style Transfer</a> algorithm to transfer the style of a reference image to the dataset frames, and use <a href="https://ali-vilab.github.io/AnyDoor-Page/">AnyDoor</a> to change the clothes of the subject.
+    </p>
+
+
+      <video id="teaser" controls loop playsinline height="100%",  style="margin:auto; right: 0; left: 0; width: 100%; display: inline;">
+        <source src="https://raw.githubusercontent.com/XuanGhahahaha/project_page_assets/master/PortraitGen/resources/result_image_compact.mp4"
+                type="video/mp4">
+      </video>
+
+      <h2 style="text-align: left;">Relighting</h2>
+      <p class="section-content-text" style="padding-bottom: 20px;">
+        We utilize <a href="https://github.com/lllyasviel/IC-Light">IC-Light</a> to manipulate the illumination of the video frames. Given a text description as the light condition, our method can harmoniously adjust the lighting of the portrait video.
+    </p>
+
+      <video id="teaser" controls loop playsinline height="100%",  style="margin:auto; right: 0; left: 0; width: 100%; display: inline;">
+        <source src="https://raw.githubusercontent.com/XuanGhahahaha/project_page_assets/master/PortraitGen/resources/result_relight_compact.mp4"
+                type="video/mp4">
+      </video>
+
+    </div>
+</div>
+
+
+<div style="background-color: white; margin-right: auto; margin-left: auto;">
+    <div class="root-content" style="padding-top: 10px;">
+        <h1>Comparison</h1>
+        <p class="section-content-text" style="padding-bottom: 20px;">
+            We compare our method with state-of-the-art video editing methods, including  <a href="https://diffusion-tokenflow.github.io/">TokenFlow</a>, <a href="https://www.mmlab-ntu.com/project/rerender/">Rerender A Video</a>, <a href="https://qiuyu96.github.io/CoDeF/">CoDeF</a> and <a href="https://tiger-ai-lab.github.io/AnyV2V/">AnyV2V</a>. Our method remarkably outperform other methods in prompt preservation, identity preservation and temporal consistency.
+        </p>
+      <video id="teaser" controls loop playsinline height="100%",  style="margin:auto; right: 0; left: 0; width: 100%; display: inline;">
+        <source src="https://raw.githubusercontent.com/XuanGhahahaha/project_page_assets/master/PortraitGen/resources/compare.mp4"
+                type="video/mp4">
+      </video>
+
+    </div>
+</div>
+
+<div style="background-color: white; margin-right: auto; margin-left: auto;">
+    <div class="root-content" style="padding-top: 10px;">
+        <h1>Ablation Study: Neural Gaussian Texture</h1>
+        <p class="section-content-text" style="padding-bottom: 20px;">
+            Inspired by Neural Texture proposed by <a href="https://arxiv.org/abs/1904.12356">Defered Neural Rendering</a>, we propose Neural Gaussian Texture, which stores learnable feature for each Gaussian, instead of storing spherical harmonic coefficients. We then employ a 2D neural renderer to transform the splatted feature map into RGB signals. This approach provides a more informative feature than SH coefficients and allows for better fusion of splatted features, facilitating the editing of more complex styles like Lego and pixel art.
+        </p>
+
+        <div class="content has-text-centered">
+            <video id="replay-video"
+                   autoplay
+                   preload="auto"
+                   playsinline
+                   loop
+                   width="80%"
+                   muted> 
+                <source src="https://raw.githubusercontent.com/XuanGhahahaha/project_page_assets/master/PortraitGen/resources//ab1_crop.mp4"
+                        type="video/mp4">
+            </video>
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 autoplay
+                 preload="auto"
+                 playsinline
+                 loop
+                 width="80%"
+                 muted> 
+              <source src="https://raw.githubusercontent.com/XuanGhahahaha/project_page_assets/master/PortraitGen/resources//ab2_crop.mp4"
+                      type="video/mp4">
+          </video>
+      </div>
+
+    </div>
+</div>
+
+<div style="background-color: white; margin-right: auto; margin-left: auto;">
+    <div class="root-content" style="padding-top: 10px;">
+        <h1>Ablation Study: Face-Aware Portrait Editing</h1>
+        <p class="section-content-text" style="padding-bottom: 20px;">
+            When editing an upper body image where the face occupies a relatively small portion, the model's editing may not be robust enough to head pose and facial structure. Face-Aware Portrait Editing (FA) could enhance the awareness of face structures by performing editing twice.
+            
+        </p>
+
+        <div class="content has-text-centered">
+            <video id="replay-video"
+                   autoplay
+                   preload="auto"
+                   playsinline
+                   loop
+                   width="80%"
+                   muted> 
+                <source src="https://raw.githubusercontent.com/XuanGhahahaha/project_page_assets/master/PortraitGen/resources//ab3_crop.mp4"
+                        type="video/mp4">
+            </video>
+        </div>
+
+    </div>
+</div>
+
+<div style="background-color: white; margin-right: auto; margin-left: auto;">
+    <div class="root-content" style="padding-top: 10px;">
+        <h1>Ablation Study: Expression Similarity Guidance</h1>
+        <p class="section-content-text" style="padding-bottom: 20px;">
+            By mapping rendered image and input source image into the latent expression space of EMOCA, and optimizing for expression similarity, we can further keep the expressions natural and consistent with original input video frames.
+            
+        </p>
+
+        <div class="content has-text-centered">
+            <video id="replay-video"
+                   autoplay
+                   preload="auto"
+                   playsinline
+                   loop
+                   width="80%"
+                   muted> 
+                <source src="https://raw.githubusercontent.com/XuanGhahahaha/project_page_assets/master/PortraitGen/resources//ab4_crop.mp4"
+                        type="video/mp4">
+            </video>
+        </div>
+
+    </div>
+</div>
+
+
+<div style="background-color: white; margin-right: auto; margin-left: auto; display: flex;">
+    <div class="root-content" style="padding-top: 10px; width: 50%; padding-bottom: 0px;">
+            <h1 style="margin-top: 10px; font-size: 25px;text-align: left;">
+                BibTex
+            </h1>
+            <pre class="bibtex" style="width: 100%; text-align: left; white-space: pre-wrap;">
+
+</pre>
+    </div>
+</div>
+
+<div style="background-color: white; margin-right: auto; margin-left: auto; display: flex;">
+    <div class="root-content" style="padding-top: 10px; width: 50%; padding-bottom: 0px;">
+            <h1 style="margin-top: 10px; font-size: 25px;text-align: left;">Acknowledgements</h1>
+        <p class="section-content-text"  style="width: 100%; text-align: left; white-space: pre-wrap;">This work was supported by the National Natural Science Foundation of China (No. 62122071, No. 62272433) and the Youth Innovation Promotion Association CAS (No. 2018495).
+        </p>
+    </div>
+</div>
+
+
+
+
+<div style="margin-bottom: 0px; ">
+    <p class="section-content-text">
+        <center>
+We use the templates released by <a href="https://rq-wu.github.io/projects/LAMP/" target="_blank">LAMP</a> and <a href="https://zju3dv.github.io/geneavatar/" target="_blank">GeneAvatar</a>.
+</center>
+    </p>
+</div>
+
+
+
+<script>
+    MathJax = {
+      tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MC1CZ3VB3B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MC1CZ3VB3B');
+</script>
+
+</body>
+
+<script>
+    window_height =  document.documentElement.clientHeight;
+    video_box = document.getElementById('video-box');
+    title_mask = document.getElementById('title-mask');
+    document.getElementsByTagName
+    imgs = video_box.getElementsByTagName('img');
+    console.log(String(window_height)+'px')
+    video_box.style.height = String(window_height)+'px'
+    title_mask.style.height = String(window_height)+'px'
+    for (i in imgs)
+    {
+        if (i < 81){
+            imgs[i].style.height = String(window_height/4)+'px';
+            console.log(String(i)+': '+String(imgs[i].style.height))
+        }
+    }
+
+var scroll_btn = document.getElementById('scroll-btn');
+    scroll_btn.addEventListener("click",function(){
+        window.scrollTo({top:window_height+30, behavior: 'smooth'});
+    })
+</script>
