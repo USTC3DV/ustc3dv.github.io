@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
   <!-- <link rel="stylesheet" href="./css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="./css/own.min.css">
   <script src="./js/handlers.js"></script>
   <script src="./js/jquery.min.js"></script>
   <script src="./js/codemirror.min.js"></script>
@@ -204,14 +205,15 @@ window.onclick = function(event) {
             }
         </style>
         <!-- <img class="title_img" style="width: 40%;" src="resources/test_title.png" alt="pipeline"/> -->
-        <span class="title-gradient-text" style="font-size: 100px;text-shadow: 0.01em -0.01em rgba(251, 255, 2, 0.634);">PortraitGen</span><br />
-        <font style="color: rgb(255, 255, 255);text-shadow: 0.05em -0.05em rgba(255, 200, 160, 0.634);">Portrait</font> Video Editing <br /> Empowered by <br />Multimodal Generative Priors  </h1>
+        <!-- <span class="title-gradient-text" style="font-size: 100px;text-shadow: 0.01em -0.01em rgba(251, 255, 2, 0.634);">PortraitGen</span> -->
+        <!-- style="font-family: 'Acme', sans-serif;" -->
+        <span class="title-gradient-text" style="font-size: 100px;text-shadow: 0.01em -0.01em rgba(251, 255, 2, 0.634)">PortraitGen</span>
+        <br />
+        <font style="color: rgb(255, 255, 255);text-shadow: 0.05em -0.05em rgba(255, 200, 160, 0.634);">Portrait</font> Video Editing Empowered by <br />Multimodal Generative Priors  </h1>
         <!-- <h1>Portrait Video Editing Empowered by Multimodal Generative Priors</h1>   -->
         <!-- <p style="font-size: 24px; color: #fff;"> CVPR 2024</p> -->
         <div class="publication-authors">
-            <span class="author-block">
-                <a href="https://xuanghahahaha.github.io/" target="_blank">Xuan Gao</a>,
-            </span>
+            <a href="https://xuanghahahaha.github.io/" target="_blank" class="author-block">Xuan Gao</a>,
             <span class="author-block">
                 Haiyao Xiao,
             </span>
@@ -221,12 +223,8 @@ window.onclick = function(event) {
             <span class="author-block">
                 Shimin Hu,
             </span>
-            <span class="author-block">
-                <a href="https://yudongguo.github.io/" target="_blank">Yudong Guo</a>,
-            </span>
-            <span class="author-block">
-                <a href="http://staff.ustc.edu.cn/~juyong/" target="_blank">Juyong Zhang</a>,
-            </span>
+            <a href="https://yudongguo.github.io/" target="_blank" class="author-block">Yudong Guo</a>,
+            <a href="http://staff.ustc.edu.cn/~juyong/" target="_blank" class="author-block">Juyong Zhang</a>,
         </div>
         <br>
         <div class="publication-authors">
@@ -235,6 +233,8 @@ window.onclick = function(event) {
         <br>
         <br>
         <br>
+        <br>
+
         <div id="button-list">
             <span class="link-button">
                 <a class="link-button-content", href="">
@@ -273,9 +273,9 @@ window.onclick = function(event) {
         <p>Click to learn more</p>
     </div>
 </div>
-<div style="background-color: rgb(255, 255, 255); margin-right: auto; margin-left: auto;">
+<!-- <div style="background-color: rgb(255, 255, 255); margin-right: auto; margin-left: auto;">
     <a name="user_pipeline"></a>
-    <div class="root-content" style="padding-top: 10px; width:40%">
+    <div class="root-content" style="padding-top: 10px; width:60%">
         <div class="content has-text-justified"></div>
         <h1>Abstract</h1>
         <p class="section-content-text" style="padding-bottom: 20px;">
@@ -284,31 +284,48 @@ window.onclick = function(event) {
     </div>
 </div>
 <br>
-<br>
+<br> -->
 <div style="background-color: white; margin-right: auto; margin-left: auto;">
     <div class="root-content" style="padding-top: 10px;">
-        <h1>Method</h1>
+        <!-- <h1>Method</h1> -->
+        <!-- <h1 class="section-name">&#128293; Learn T2V Generation with Only <font style="color: red;">8~16</font> Videos &#128293;</h1> -->
+        <!-- Our framework can achieve high-quality editing of portrait videos of any length in just 30 minutes. -->
+        <br/>
+        <h1 class="section-name"> <font style="color:rgb(0, 132, 255)">PortraitGen</font> lifts <font style="color:rgb(0, 0, 0)">2D</font> portrait video into <font style="color:rgb(68, 201, 7)">4D Gaussian field</font>. <br/>
+        It achieves <font style="color:rgb(255, 0, 0)">multimodal</font> portrait editing in just <font style="color:rgb(255, 0, 0)">30 minutes &#9200</font>. <br/>
+        The edited 3D portrait could also be rendered at <font style="color:rgb(255, 0, 0)">100 FPS &#9889</font>. </h1>
+        <br/>
         <img style="width: 100%;" src="https://raw.githubusercontent.com/XuanGhahahaha/project_page_assets/master/PortraitGen/resources/pipe.png"
         alt="pipeline"/>
         <p class="section-content-text" style="padding-bottom: 20px;">
         We first track the SMPL-X coefficients of the given monocular video, and then use a Neural Gaussian Texture mechanism to get a 3D Gaussian feature field. These neural Gaussians are further splatted to render portrait images. An iterative dataset update strategy is applied for portrait editing, and a Multimodal Face Aware Editing module is proposed to enhance expression quality and preserve personalized facial structures.
         </p>
+
+    </div>
+</div>
+
+<div style="background-color: #f5f5f5; margin-right: auto; margin-left: auto;">
+    <div class="root-content" style="padding-top: 10px;">
+    <h1 style="font-family: 'Acme', sans-serif;">&#127916;Introduction Video&#127916;
+    </h1>
       <video id="teaser" controls loop playsinline height="100%",  style="margin:auto; right: 0; left: 0; width: 100%; display: inline;">
         <source src="https://raw.githubusercontent.com/XuanGhahahaha/project_page_assets/master/PortraitGen/resources/method.mp4"
                 type="video/mp4">
       </video>
 
     </div>
+    <br/>
 </div>
+
 
 <div style="background-color: white; margin-right: auto; margin-left: auto;">
     <div class="root-content" style="padding-top: 10px;">
-        <h1>Multimodal Portrait Editing
+        <h1 style="font-family: 'Acme', sans-serif;">&#127912;Multimodal Portrait Editing&#127912;
         </h1>
         <p class="section-content-text" style="padding-bottom: 20px;">
             Our scheme is a unified portrait video editing framework. Any structure preserving image editing model could be used to synthesize a 3D consistent and temporally coherent portrait video.
         </p>
-        <h2 style="text-align: left;">Text Driven Editing</h2>
+        <h2 style="text-align: left; font-family: 'Acme', sans-serif;">Text Driven Editing</h2>
         <p class="section-content-text" style="padding-bottom: 20px;">
             We use <a href="https://www.timothybrooks.com/instruct-pix2pix/">InstructPix2Pix</a> as 2D editing model. Its UNet takes three inputs: an input RGB image, a text instruction and noised latent. We add partial noise to rendered image and edit it based on input source image and instruction.
         </p>
@@ -318,7 +335,7 @@ window.onclick = function(event) {
                 type="video/mp4">
       </video>
 
-      <h2 style="text-align: left;">Image Driven Editing</h2>
+      <h2 style="text-align: left; font-family: 'Acme', sans-serif;">Image Driven Editing</h2>
       <p class="section-content-text" style="padding-bottom: 20px;">
         We focus on two kinds of editing works based on image prompt. One kind is to extract the global style of a reference image and another aims to customize an image by placing an object at a specific location. These approaches are utilized in our experiments for style transfer and virtual try-on. We use a <a href="https://github.com/tjwhitaker/a-neural-algorithm-of-artistic-style">Neural Style Transfer</a> algorithm to transfer the style of a reference image to the dataset frames, and use <a href="https://ali-vilab.github.io/AnyDoor-Page/">AnyDoor</a> to change the clothes of the subject.
     </p>
@@ -329,7 +346,7 @@ window.onclick = function(event) {
                 type="video/mp4">
       </video>
 
-      <h2 style="text-align: left;">Relighting</h2>
+      <h2 style="text-align: left; font-family: 'Acme', sans-serif;">Relighting</h2>
       <p class="section-content-text" style="padding-bottom: 20px;">
         We utilize <a href="https://github.com/lllyasviel/IC-Light">IC-Light</a> to manipulate the illumination of the video frames. Given a text description as the light condition, our method can harmoniously adjust the lighting of the portrait video.
     </p>
@@ -342,10 +359,10 @@ window.onclick = function(event) {
     </div>
 </div>
 
-
-<div style="background-color: white; margin-right: auto; margin-left: auto;">
+<br/>
+<div style="background-color: #f5f5f5; margin-right: auto; margin-left: auto;">
     <div class="root-content" style="padding-top: 10px;">
-        <h1>Comparison</h1>
+        <h1 style="font-family: 'Acme', sans-serif;">&#128269;Comparison&#128269;</h1>
         <p class="section-content-text" style="padding-bottom: 20px;">
             We compare our method with state-of-the-art video editing methods, including  <a href="https://diffusion-tokenflow.github.io/">TokenFlow</a>, <a href="https://www.mmlab-ntu.com/project/rerender/">Rerender A Video</a>, <a href="https://qiuyu96.github.io/CoDeF/">CoDeF</a> and <a href="https://tiger-ai-lab.github.io/AnyV2V/">AnyV2V</a>. Our method remarkably outperform other methods in prompt preservation, identity preservation and temporal consistency.
         </p>
@@ -359,7 +376,10 @@ window.onclick = function(event) {
 
 <div style="background-color: white; margin-right: auto; margin-left: auto;">
     <div class="root-content" style="padding-top: 10px;">
-        <h1>Ablation Study: Neural Gaussian Texture</h1>
+        <h1 style="font-family: 'Acme', sans-serif;">&#129514;Ablation Study&#129514;
+        </h1>
+        <h2 style="text-align: left; font-family: 'Acme', sans-serif;">Neural Gaussian Texture</h2>
+        <!-- <h1>Neural Gaussian Texture</h1> -->
         <p class="section-content-text" style="padding-bottom: 20px;">
             Inspired by Neural Texture proposed by <a href="https://arxiv.org/abs/1904.12356">Defered Neural Rendering</a>, we propose Neural Gaussian Texture, which stores learnable feature for each Gaussian, instead of storing spherical harmonic coefficients. We then employ a 2D neural renderer to transform the splatted feature map into RGB signals. This approach provides a more informative feature than SH coefficients and allows for better fusion of splatted features, facilitating the editing of more complex styles like Lego and pixel art.
         </p>
@@ -394,7 +414,8 @@ window.onclick = function(event) {
 
 <div style="background-color: white; margin-right: auto; margin-left: auto;">
     <div class="root-content" style="padding-top: 10px;">
-        <h1>Ablation Study: Face-Aware Portrait Editing</h1>
+        <h2 style="text-align: left; font-family: 'Acme', sans-serif;">Face-Aware Portrait Editing</h2>
+        <!-- <h1>Ablation Study: Face-Aware Portrait Editing</h1> -->
         <p class="section-content-text" style="padding-bottom: 20px;">
             When editing an upper body image where the face occupies a relatively small portion, the model's editing may not be robust enough to head pose and facial structure. Face-Aware Portrait Editing (FA) could enhance the awareness of face structures by performing editing twice.
             
@@ -418,9 +439,10 @@ window.onclick = function(event) {
 
 <div style="background-color: white; margin-right: auto; margin-left: auto;">
     <div class="root-content" style="padding-top: 10px;">
-        <h1>Ablation Study: Expression Similarity Guidance</h1>
+        <h2 style="text-align: left; font-family: 'Acme', sans-serif;">Expression Similarity Guidance</h2>
+        <!-- <h1>Ablation Study: Expression Similarity Guidance</h1> -->
         <p class="section-content-text" style="padding-bottom: 20px;">
-            By mapping rendered image and input source image into the latent expression space of EMOCA, and optimizing for expression similarity, we can further keep the expressions natural and consistent with original input video frames.
+            By mapping rendered image and input source image into the latent expression space of <a href="https://emoca.is.tue.mpg.de/" target="_blank">EMOCA</a> , and optimizing for expression similarity, we can further keep the expressions natural and consistent with original input video frames.
             
         </p>
 
@@ -442,8 +464,8 @@ window.onclick = function(event) {
 
 
 <div style="background-color: white; margin-right: auto; margin-left: auto; display: flex;">
-    <div class="root-content" style="padding-top: 10px; width: 50%; padding-bottom: 0px;">
-            <h1 style="margin-top: 10px; font-size: 25px;text-align: left;">
+    <div class="root-content" style="padding-top: 10px; width: 65%; padding-bottom: 0px;">
+            <h1 style="margin-top: 10px; font-size: 25px;text-align: left;text-align: left; font-family: 'Acme', sans-serif;">
                 BibTex
             </h1>
             <pre class="bibtex" style="width: 100%; text-align: left; white-space: pre-wrap;">
@@ -453,8 +475,8 @@ window.onclick = function(event) {
 </div>
 
 <div style="background-color: white; margin-right: auto; margin-left: auto; display: flex;">
-    <div class="root-content" style="padding-top: 10px; width: 50%; padding-bottom: 0px;">
-            <h1 style="margin-top: 10px; font-size: 25px;text-align: left;">Acknowledgements</h1>
+    <div class="root-content" style="padding-top: 10px; width: 65%; padding-bottom: 0px;">
+            <h1 style="margin-top: 10px; font-size: 25px;text-align: left;text-align: left; font-family: 'Acme', sans-serif;">Acknowledgements</h1>
         <p class="section-content-text"  style="width: 100%; text-align: left; white-space: pre-wrap;">This work was supported by the National Natural Science Foundation of China (No. 62122071, No. 62272433) and the Youth Innovation Promotion Association CAS (No. 2018495).
         </p>
     </div>
