@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DeformRF: Deformable NeRF using Recursively Subdivided Tetrahedra">
+  <meta property="og:title" content="DeformRF" />
+  <!-- <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG" /> -->
+  <meta property="og:url" content="https://ustc3dv.github.io/DeformRF/" />
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <!-- <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" /> -->
+
+
+  <!-- <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG"> -->
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <!-- <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image"> -->
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="Deformable NeRF using Recursively Subdivided Tetrahedra">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>DeformRF</title>
+  <link rel="icon" type="image/x-icon" href="static/images/jelly800x800.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">DeformRF: Deformable NeRF using Recursively Subdivided Tetrahedra</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://zheruiqiu.github.io/" target="_blank">Zherui Qiu</a><sup>1</sup>,</span>
+              <span class="author-block">
+                Chenqu Ren<sup>2</sup>,</span>
+              <span class="author-block">
+                Kaiwen Song<sup>1</sup>,</span>
+              <span class="author-block">
+                Xiaoyi Zeng<sup>1</sup>,</span>
+              <span class="author-block">
+                Leyuan Yang<sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="http://staff.ustc.edu.cn/~juyong/" target="_blank">Juyong Zhang</a><sup>1</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <sup>1</sup>University of Science and Technology of China<br>
+                <sup>2</sup>East China Normal University<br><br>
+                <strong style="font-size: 1.3em;">ACM Multimedia 2024</strong>
+              </span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- Arxiv PDF link -->
+                <span class="link-block">
+                  <a href="https://openreview.net/forum?id=QayT1wjqYB" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>OpenReview</span>
+                  </a>
+                </span>
+                <!-- YouTube link -->
+                <span class="link-block">
+                  <a href="https://www.youtube.com/watch?v=2Nrm_XRzv2Y" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fa-brands fa-youtube"></i>
+                    </span>
+                    <span>YouTube (5 min)</span>
+                  </a>
+                </span>
+
+                <!-- Paper PDF link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2410.04402"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+
+                <!-- Supplementary PDF link -->
+                <span class="link-block">
+                  <a href="https://raw.githubusercontent.com/zheruiqiu/project_page_assets/master/DeformRF/resources/DeformRF_supp.pdf" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Supplementary Materials</span>
+                  </a>
+                </span>
+
+                <!-- Github link -->
+                <span class="link-block">
+                  <a class="external-link button is-normal is-rounded is-dark" disabled>
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (Coming Soon)</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+<!-- Youtube video -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-centered has-text-centered">
+      <!-- Paper video. -->
+      <h2 class="title is-3">Video Presentation</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+
+          <div class="publication-video">
+            <!-- Youtube embed code here -->
+            <iframe src="https://www.youtube.com/embed/2Nrm_XRzv2Y" frameborder="0" allow="autoplay; encrypted-media"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End youtube video -->
+
+
+<!-- Paper abstract -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            While neural radiance fields (NeRF) have shown promise in novel view synthesis, their implicit representation limits explicit control over object manipulation. Existing research has proposed the integration of explicit geometric proxies to enable deformation. However, these methods face two primary challenges: firstly, the time-consuming and computationally demanding tetrahedralization process; and secondly, handling complex or thin structures often leads to either excessive, storage-intensive tetrahedral meshes or poor-quality ones that impair deformation capabilities. To address these challenges, we propose DeformRF, a method that seamlessly integrates the manipulability of tetrahedral meshes with the high-quality rendering capabilities of feature grid representations. To avoid ill-shaped tetrahedra and tetrahedralization for each object, we propose a two-stage training strategy. Starting with an almost-regular tetrahedral grid, our model initially retains key tetrahedra surrounding the object and subsequently refines object details using finer-granularity mesh in the second stage. We also present the concept of recursively subdivided tetrahedra to create higher-resolution meshes implicitly. This enables multi-resolution encoding while only necessitating the storage of the coarse tetrahedral mesh generated in the first training stage. We conduct a comprehensive evaluation of our DeformRF on both synthetic and real-captured datasets. Both quantitative and qualitative results demonstrate the effectiveness of our method for novel view synthesis and deformation tasks.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Paper abstract -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview</h2>
+      </div>
+    </div>
+    <div class="hero-body">
+      <img src="static/images/overview.png" alt="overview"/>
+        </img>
+        <h2 class="subtitle has-text-centered">
+          Overview of DeformRF. (a) Given that a ray intersects with a tetrahedral mesh, we proceed with ray marching while retaining the sample points within the tetrahedron. (b) For each sample, we perform barycentric interpolation at each level and combine the feature vectors from all levels to create a complete feature vector. In this process, the computation of the barycentric coordinates is conducted iteratively. (c) In the two-stage training process, we first acquire a coarse mesh and then enhance training through increased subdivisions. (d) Our method support physically-based simulation and rigged animation.
+        </h2>
+      </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Physically-based Simulation</h2>
+        <div class="content has-text-justified">
+          <p>
+            Here are four videos showcasing the rendering outcomes of objects as they deform upon impacting a plane under the influence of gravity.
+          </p>          
+        </div>
+        
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 autoplay
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="60%">
+            <source src="https://raw.githubusercontent.com/zheruiqiu/project_page_assets/master/DeformRF/resources/softbody.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!--BibTex citation -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+      @inproceedings{
+          qiu2024deformable,
+          title={Deformable NeRF using Recursively Subdivided Tetrahedra},
+          author={Zherui Qiu and Chenqu Ren and Kaiwen Song and Xiaoyi Zeng and Leyuan Yang and Juyong Zhang},
+          booktitle={ACM Multimedia 2024},
+          year={2024},
+          url={https://openreview.net/forum?id=QayT1wjqYB}
+      }
+    </code></pre>
+  </div>
+</section>
+<!--End BibTex citation -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+              target="_blank">Academic Project Page Template</a> which was adopted from the <a
+              href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            <br> This website is licensed under a <a rel="license"
+              href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+<!-- End of Statcounter Code -->
+
+</body>
+
+</html>
