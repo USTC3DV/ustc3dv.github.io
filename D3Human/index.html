@@ -1,1 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="D<sup>3</sup>-Human: Dynamic Disentangled Digital Human from Monocular Video">
+  <meta name="keywords" content="Reconstruction">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D<sup>3</sup>-Human</title>
+
+  <!-- Bootstrap -->
+  <link href="static/css/bootstrap-4.4.1.css" rel="stylesheet">
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h2 class="title is-2 publication-title" style="margin-top: 0; margin-bottom: 0">D<sup>3</sup>-Human: Dynamic Disentangled Digital Human from Monocular Video</h2>
+  
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Honghu Chen</a></sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              Bo Peng</a></sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              Yunfan Tao</a></sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="http://staff.ustc.edu.cn/~juyong/">Juyong Zhang</a></sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"></sup>University of Science and Technology of China</span>&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Code(coming soon!)</span>
+                </a>
+              </span>
+             
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/abs/2404.04673" 
+                  class="external-link button is-normal is-rounded is-dark disabled">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+              <!-- Video Link. -->
+              <!--
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              -->
+              <!-- Code Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/USTC3DV/NeuralABC-code"
+                  class="external-link button is-normal is-rounded is-dark disabled">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span> -->
+
+              <!-- Dataset Link. -->
+              <!--
+              <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              </span>
+              -->
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Reconstructions</h2>
+
+        <div class="embed-responsive embed-responsive-16by9">
+
+          <iframe style="clip-path: inset(1px 1px)" src="https://sketchfab.com/playlists/embed?collection=abee3cc1a7a7436c804f2bd3aadc2acd" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true" width="100%" height="100%" frameborder="0"></iframe>
+        </div>
+        
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+-->
+
+
+<section class="section">
+
+  <div class="container is-max-desktop">
+
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="./resources/demo1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+      <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="margin-top: -30px">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We introduce D<sup>3</sup>-Human, a method for reconstructing <strong>D</strong>ynamic <strong>D</strong>isentangled <strong>D</strong>igital Human geometry from monocular videos. 
+            Past monocular video human reconstruction primarily focuses on reconstructing undecoupled clothed human bodies or only reconstructing clothing, making it difficult to apply directly in applications such as animation production. 
+            The challenge in reconstructing decoupled clothing and body lies in the occlusion caused by clothing over the body. To this end, the details of the visible area and the plausibility of the invisible area must be ensured during the reconstruction process.
+            Our proposed method combines explicit and implicit representations to model the decoupled clothed human body, leveraging the robustness of explicit representations and the flexibility of implicit representations. 
+            Specifically, we reconstruct the visible region as SDF and propose a novel human manifold signed distance field (hmSDF) to segment the visible clothing and visible body, and then merge the visible and invisible body.
+            Extensive experimental results demonstrate that, compared with existing reconstruction schemes, D<sup>3</sup>-Human can achieve high-quality decoupled reconstruction of the human body wearing different clothing, and can be directly applied to clothing transfer and animation production.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+    <!-- Paper video. -->
+    <!--
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!--
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./resources/teaser.png"
+                type="video/mp4">
+      </video>
+      -->
+      <h2 class="title is-3" style="margin-top: -20px">Method</h2>
+      <img src="./resources/pipe.jpg" class="center">
+      <h2 class="subtitle has-text-centered" style="margin-top: 15px">
+        The optimization process is divided into two steps: template generation and detailed deformation.  
+        The object is initialized as a DMTet representation, and is optimized to form a complete clothed human. 
+        An optimizable HmSDF function separates the clothing and body regions, with missing parts filled by SMPL. 
+        After generating the disentangled template, we use two MLPs to model detailed deformations for each frame of the body and clothing meshes separately. 
+        Finally, the meshes are transformed to the observed space using a forward LBS deformation, supervised by images, normal maps, and parsing masks with a differentiable renderer.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+
+  <div class="container is-max-desktop">
+
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Reconstruction Results</h2>
+
+        <div class="content has-text-centerd">
+          <p>
+            We present the reconstruction results of the sequence and compare them with related methods.
+          </p>
+        </div>
+
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="./resources/compare1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="./resources/compare2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="./resources/compare3.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="./resources/compare4.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Ablation Studies. -->
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">UDF or hmSDF?</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            We present ablation studies on template generation using UDF and hmSDF.
+          </p>
+        </div>
+        
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="./resources/ablation.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Ablation Studies. -->
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Applicaions</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            Reconstructing disentangled clothing and body not only makes applications more convenient and allows for direct animation using physics-based methods, but also enables clothing exchange for clothing transfer, 
+            and facilitates the animation of the disentangled clothed human after clothing transfer.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="./resources/application.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- 
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <div class="content has-text-justified">
+      <p>
+        If you find our paper useful for your work please cite:
+      </p>
+    </div>
+    <pre><code>
+      @article{Chen2024NeuralABC,
+         author = {Honghu Chen, Yuxin Yao, and Juyong Zhang}, 
+         title = {Neural-ABC: Neural Parametric Models for Articulated Body with Clothes}, 
+         journal={IEEE Transactions on Visualization and Computer Graphics},
+         year={2024}，
+         publisher={IEEE}}
+    </code></pre>
+  </div>
+</section> -->
+
+
+
+<!-- <section class="section" id="Acknowledgements">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Acknowledgements</h2>
+    This research was partially supported by the National Natural Science Foundation of China (No.62122071, No.62272433), and the Fundamental Research Funds for the Central Universities (No. WK3470000021).
+  </div>
+</section> -->
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            This webpage template is from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. 
+            We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing and open-sourcing this template.
+          </p>
+        </div>
+      </div>
+          <p></p>
+        </div>
+      </div>
+</footer>
+
+</body>
+</html>
 
