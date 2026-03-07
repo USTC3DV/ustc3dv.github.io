@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ExpPortrait: Expressive Portrait Generation</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ExpPortrait: Expressive Portrait Generation via Personalized Representation</h1>
+          <h2 class="title is-4 publication-title" style="color:#6e6e6e;margin-top: 2; margin-bottom: 2">CVPR 2026</h2>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://github.com/JunyiWang02/">Junyi Wang</a>,</span>
+            <span class="author-block">
+              <a href="https://yudongguo.github.io/">Yudong Guo</a>,</span>
+            <span class="author-block">
+              Boyang Guo,
+            </span>
+            <span class="author-block">
+              Shengming Yang,
+            </span>
+            <span class="author-block">
+              <a href="http://staff.ustc.edu.cn/~juyong/">Juyong Zhang</a>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">University of Science and Technology of China,</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2602.19900"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2602.19900"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#top" class="button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code(Coming Soon)</span>
+                </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="teaser-switcher">
+        <button class="teaser-nav prev" type="button" aria-label="Previous video">‹</button>
+
+        <div class="teaser-stage">
+          <video class="teaser-video is-active" autoplay muted loop playsinline preload="metadata">
+            <source src="https://raw.githubusercontent.com/JunyiWang02/project_page_assets/main/expportrait/woman_cartoon_col134.mp4" type="video/mp4">
+          </video>
+
+          <video class="teaser-video" muted loop playsinline preload="metadata">
+            <source src="https://raw.githubusercontent.com/JunyiWang02/project_page_assets/main/expportrait/woman_cartoon_col235.mp4" type="video/mp4">
+          </video>
+          <video class="teaser-video" muted loop playsinline preload="metadata">
+            <source src="https://raw.githubusercontent.com/JunyiWang02/project_page_assets/main/expportrait/teaser235.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <button class="teaser-nav next" type="button" aria-label="Next video">›</button>
+      </div>
+
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">ExpPortrait</span> introduces a fine-grained and disentangled head representation 
+        as the control signal, and leverages the generalization ability of DiT to achieve portrait 
+        animation with high controllability, strong identity consistency, and rich expressiveness.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            While diffusion models have shown great potential in portrait generation, generating expressive, coherent, and controllable cinematic portrait videos remains a significant challenge. Existing intermediate signals for portrait generation, such as 2D landmarks and parametric models, have limited disentanglement capabilities and cannot express personalized details due to their sparse or low-rank representation. Therefore, existing methods based on these models struggle to accurately preserve subject identity and expressions, hindering the generation of highly expressive portrait videos. 
+            To overcome these limitations, we propose a high-fidelity personalized head representation that more effectively disentangles expression and identity. This representation captures both static, subject-specific global geometry and dynamic, expression-related details. Furthermore, we introduce an expression transfer module to achieve personalized transfer of head pose and expression details between different identities. 
+            We use this sophisticated and highly expressive head model as a conditional signal to train a diffusion transformer (DiT)-based generator to synthesize richly detailed portrait videos. Extensive experiments on self- and cross-reenactment tasks demonstrate that our method outperforms previous models in terms of identity preservation, expression accuracy, and temporal stability, particularly in capturing fine-grained details of complex motion.
+          </p>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="margin-top: -20px">Motivation</h2>
+
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="https://raw.githubusercontent.com/JunyiWang02/project_page_assets/main/expportrait/Motivation.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="margin-top: -20px">Method</h2>
+
+        <img src="https://raw.githubusercontent.com/JunyiWang02/project_page_assets/main/expportrait/pipeline.jpg" class="center">
+        <div class="content has-text-justified">
+          <p style="margin-top: 30px">
+            To establish a faithful mapping from the driving frames to the reference identity, we first build a personalized head representation that captures the subject’s identity and expression space. We then introduce an identity-dependent expression transfer module to robustly transfer poses and expressions across identities. Finally, we fine-tune a 
+            <a href="https://github.com/Wan-Video/Wan2.1" target="_blank" rel="noopener noreferrer">
+              video diffusion model
+            </a>, 
+            conditioning it on our personalized, detail-rich head representation to synthesize the final high-fidelity video.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="https://raw.githubusercontent.com/JunyiWang02/project_page_assets/main/expportrait/Pipeline.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -20px">Personalized Head Representation</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            Here are some visual results of our Personalized Head Representation. Our representation achieves a great disentanglement of identity and expression while preserving strong 3D consistency across views and time.
+          </p>
+        </div>
+        
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="https://raw.githubusercontent.com/JunyiWang02/project_page_assets/main/expportrait/visual_results.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -20px">Comparison</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            We compare our work with <a href="https://follow-your-emoji.github.io/">Follow-Your-Emoji</a>, <a href="https://liveportrait.github.io/">LivePortrait</a>, <a href="https://github.com/Zejun-Yang/AniPortrait">AniPortrait</a>, <a href="https://byteaigc.github.io/X-Portrait2/">X-NeMo</a>, and <a href="https://kkakkkka.github.io/HunyuanPortrait/">HunyuanPortrait</a>. Our method remarkably outperforms other methods in expressiveness and consistency.
+          </p>
+        </div>
+        
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="https://raw.githubusercontent.com/JunyiWang02/project_page_assets/main/expportrait/Comparison.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Novel View Synthesis</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            ExpPortrait preserves consistent expression and identity across varying viewpoints.
+          </p>
+        </div>
+        
+        <div class="content has-text-centered">
+          <video class="video-small"
+                controls
+                muted
+                preload="metadata"
+                playsinline
+                loop>
+            <source src="https://raw.githubusercontent.com/JunyiWang02/project_page_assets/main/expportrait/multiview.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr/>
+
+<section class="section" id="BibTeX">
+  <div class="container content is-max-desktop">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+      @article{wang2026expportrait,
+        title={ExpPortrait: Expressive Portrait Generation via Personalized Representation},
+        author={Wang, Junyi and Guo, Yudong and Guo, Boyang and Yang, Shengming and Zhang, Juyong},
+        booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+        year={2026}
+      }
+    </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://arxiv.org/abs/2602.19900">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://junyiwang02.github.io/ExpPortrait/" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="content has-text-centered">
+      <p>
+        The website template is borrowed from HyperNeRF.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="./static/slick/slick.min.js"></script>
+</body>
+</html>
