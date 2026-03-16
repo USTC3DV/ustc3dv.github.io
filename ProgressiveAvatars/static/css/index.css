@@ -95,13 +95,21 @@ pre code {
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  background: #ffffff;
 }
 
 .teaser-video {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
-  border-radius: 12px;
+  background: #ffffff;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.035);
+  transform-origin: center center;
 }
 
 .teaser-summary {
