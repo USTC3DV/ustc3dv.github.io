@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="ProgressiveAvatars is a progressive animatable 3D Gaussian avatar representation for adaptive rendering under bandwidth and compute constraints.">
+  <meta name="keywords" content="ProgressiveAvatars, 3D Gaussian Splatting, Head Avatars, Progressive Rendering, CVPR 2026">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ProgressiveAvatars</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&amp;family=Google+Sans:wght@400;500;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script defer src="./static/js/index.js"></script>
+</head>
+<body>
+  <section class="hero publication-header" id="top">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">ProgressiveAvatars: Progressive Animatable 3D Gaussian Avatars</h1>
+            <h2 class="title is-4 publication-venue">CVPR 2026</h2>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Kaiwen Song,</span>
+              <span class="author-block">Jinkai Cui,</span>
+              <span class="author-block"><a href="http://staff.ustc.edu.cn/~juyong/" target="_blank" rel="noopener">Juyong Zhang</a></span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">University of Science and Technology of China</span>
+            </div>
+
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="./assets/Progressive_avatars.pdf" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="./assets/Progressive_avatars.pdf" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <span class="button is-normal is-rounded is-dark is-disabled" aria-disabled="true">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code (Coming Soon)</span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <div class="teaser-stage">
+          <video class="teaser-video is-active" autoplay muted loop playsinline controls preload="metadata">
+            <source src="./assets/progressiveAvatar1_1_3.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <h2 class="subtitle has-text-centered teaser-summary">
+          ProgressiveAvatars introduces a progressive, animatable 3D Gaussian avatar representation that stays usable at
+          low transmission budgets and continuously refines as more bandwidth, memory, or compute becomes available.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="abstract">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              In practical real-time XR and telepresence applications, network and computing resources fluctuate
+              frequently. Therefore, a progressive 3D representation is needed. To this end, we propose
+              ProgressiveAvatars, a progressive avatar representation built on a hierarchy of 3D Gaussians grown by
+              adaptive implicit subdivision on a template mesh. 3D Gaussians are defined in face-local coordinates to
+              remain animatable under varying expressions and head motion across multiple detail levels. The hierarchy
+              expands when screen-space signals indicate a lack of detail, allocating resources to important areas.
+              Leveraging importance ranking, ProgressiveAvatars supports incremental loading and rendering, adding new
+              Gaussians as they arrive while preserving previous content, thus achieving smooth quality improvements
+              across varying bandwidths. ProgressiveAvatars enables progressive delivery and progressive rendering under
+              fluctuating network bandwidth and varying compute and memory resources.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="highlight">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3 has-text-centered">Highlight</h2>
+          <div class="columns is-variable is-5">
+            <div class="column">
+              <div class="highlight-card">
+                <p class="highlight-index">01</p>
+                <h3>Single Asset</h3>
+                <p>ProgressiveAvatars replaces redundant discrete LOD copies with one unified, streamable 3D asset that adapts to different bandwidth and transmission budgets.</p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="highlight-card">
+                <p class="highlight-index">02</p>
+                <h3>Continuous LoD</h3>
+                <p>Newly arrived Gaussians are added on top of existing content, enabling smooth quality refinement instead of discrete model switching.</p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="highlight-card">
+                <p class="highlight-index">03</p>
+                <h3>Adaptive Subdivision</h3>
+                <p>Screen-space gradients drive refinement toward high-frequency regions, avoiding the waste of uniform subdivision and using transmission and compute more efficiently.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="method">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3 has-text-centered">Method</h2>
+
+          <div class="content has-text-justified section-copy">
+            <p>
+              Starting from a tracked FLAME mesh, ProgressiveAvatars builds a mesh-anchored hierarchy of 3D Gaussians
+              through adaptive implicit subdivision. New levels are introduced only when the current representation lacks
+              detail, while face-local parameterization keeps the avatar stable and animatable during progressive growth.
+            </p>
+          </div>
+
+          <div class="media-panel">
+            <video autoplay controls muted preload="metadata" playsinline loop width="100%">
+              <source src="./assets/pipeline/pipeline-1.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="progressive-rendering">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3 has-text-centered">Progressive Rendering</h2>
+
+          <div class="content has-text-justified section-copy">
+            <p>
+              ProgressiveAvatars is designed to deliver useful renderings before the full asset arrives. Importance
+              ranking decides which Gaussians are transmitted first, while adaptive growth reveals how the hierarchy
+              expands toward detail-rich facial regions over training.
+            </p>
+          </div>
+
+          <div class="progressive-stack">
+            <div class="progressive-item">
+              <h3 class="progressive-title">Importance Ranking</h3>
+              <div class="content has-text-justified progressive-copy">
+                <p>
+                  After training, ProgressiveAvatars assigns each face an importance score from its accumulated
+                  rendering contribution across views. In practice, faces whose bound Gaussians carry higher opacity and
+                  transmittance contributions receive higher priority, so transmission starts from the most visually
+                  influential regions. This importance-first ordering makes early partial renderings stay close to the
+                  final avatar instead of wasting bandwidth on low-impact details first.
+                </p>
+              </div>
+              <div class="media-panel">
+                <video autoplay controls muted preload="metadata" playsinline loop width="100%">
+                  <source src="./assets/importance_ranking/importance_ranking-1.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+
+            <div class="progressive-item">
+              <h3 class="progressive-title">Visualization of Training</h3>
+              <div class="media-panel">
+                <video autoplay controls muted preload="metadata" playsinline loop width="100%">
+                  <source src="./assets/vis_training/vis_training-1.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="comparison">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3 has-text-centered">Comparison</h2>
+
+          <div class="comparison-panel">
+            <div class="comparison-switcher" aria-label="Comparison cases">
+              <button class="comparison-nav prev" type="button" aria-label="Previous comparison case">‹</button>
+
+              <div class="comparison-stage">
+                <video class="comparison-video is-active" data-index="0" autoplay controls muted preload="metadata" playsinline loop>
+                  <source src="./assets/comp_1/comp_1-1.mp4" type="video/mp4">
+                </video>
+                <video class="comparison-video" data-index="1" autoplay controls muted preload="metadata" playsinline loop>
+                  <source src="./assets/comp_2/comp_2-1.mp4" type="video/mp4">
+                </video>
+                <video class="comparison-video" data-index="2" autoplay controls muted preload="metadata" playsinline loop>
+                  <source src="./assets/comp_3/comp_3-1.mp4" type="video/mp4">
+                </video>
+                <video class="comparison-video" data-index="3" autoplay controls muted preload="metadata" playsinline loop>
+                  <source src="./assets/comp_4/comp_4-1.mp4" type="video/mp4">
+                </video>
+              </div>
+
+              <button class="comparison-nav next" type="button" aria-label="Next comparison case">›</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container content is-max-desktop">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{song2026progressiveavatars,
+  title     = {ProgressiveAvatars: Progressive Animatable 3D Gaussian Avatars},
+  author    = {Song, Kaiwen and Cui, Jinkai and Zhang, Juyong},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2026}
+}</code></pre>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="./assets/Progressive_avatars.pdf" target="_blank" rel="noopener" aria-label="Paper link">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="./assets/Progressive_avatars.pdf" target="_blank" rel="noopener" aria-label="arXiv link">
+          <i class="ai ai-arxiv"></i>
+        </a>
+        <span class="icon-link is-disabled" aria-label="Code coming soon">
+          <i class="fab fa-github"></i>
+        </span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
