@@ -46,6 +46,11 @@ pre code {
 .publication-title {
   line-height: 1.08;
   margin-bottom: 1rem;
+  text-align: center;
+}
+
+.publication-title-line {
+  display: block;
 }
 
 .publication-venue {
