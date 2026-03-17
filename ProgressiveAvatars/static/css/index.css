@@ -53,6 +53,10 @@ pre code {
   display: block;
 }
 
+.publication-title-line:last-child {
+  font-size: 0.8em;
+}
+
 .publication-venue {
   color: #5f6b7e;
   margin-bottom: 1rem;
