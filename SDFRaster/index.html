@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="SDFRaster: Distance Field Rasterization for End-to-End Mesh Reconstruction">
+  <meta name="keywords" content="SDFRaster, Distance Field Rasterization, Signed Distance Field, Mesh Reconstruction, SIGGRAPH 2026">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SDFRaster</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&amp;family=Google+Sans:wght@400;500;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script defer src="./static/js/index.js"></script>
+</head>
+<body>
+  <section class="hero publication-header" id="top">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              <span class="publication-title-line">SDFRaster:</span>
+              <span class="publication-title-line">Distance Field Rasterization for End-to-End Mesh Reconstruction</span>
+            </h1>
+            <h2 class="title is-4 publication-venue">SIGGRAPH 2026</h2>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Jinkai Cui,</span>
+              <span class="author-block">Kaiwen Song,</span>
+              <span class="author-block">Chumeng Niu,</span>
+              <span class="author-block"><a href="http://staff.ustc.edu.cn/~juyong/" target="_blank" rel="noopener">Juyong Zhang</a></span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">University of Science and Technology of China</span>
+            </div>
+
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="./assets/SDFRaster.pdf" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2603.16447" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <span class="button is-normal is-rounded is-dark is-disabled" aria-disabled="true">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code (Coming Soon)</span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container teaser-container">
+      <div class="hero-body">
+        <div class="teaser-stage">
+          <video class="teaser-video is-active" autoplay muted loop playsinline preload="metadata">
+            <source src="./assets/training_visualization.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <h2 class="subtitle has-text-centered teaser-summary">
+          SDFRaster introduces a rasterizable SDF representation for end-to-end mesh reconstruction from multi-view
+          images. With this representation, our method achieves high-quality mesh reconstruction.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="abstract">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Rasterization based methods have recently enabled high-quality novel view synthesis at real-time rates,
+              but their underlying volumetric primitives do not expose a direct, globally consistent surface
+              representation, leaving surface extraction to heuristic post-processing. In contrast, implicit signed
+              distance field (SDF) methods provide well-defined surfaces but are typically optimized with
+              computationally expensive ray marching. We propose \textbf{SDFRaster}, a rasterizable SDF
+              representation that bridges this gap by combining the efficiency of rasterization with signed distance
+              field for end-to-end mesh reconstruction. Starting from a Delaunay tetrahedralization, we optimize a
+              continuous SDF over a tetrahedral grid and render it efficiently by rasterizing tetrahedra and
+              alpha-compositing their contributions. We further integrate differentiable Marching Tetrahedra into the
+              optimization loop, enabling end-to-end mesh reconstruction without post-processing mesh extraction.
+              Experiments on DTU and Tanks and Temples demonstrate that SDFRaster achieves higher-quality and more
+              complete surface reconstructions with lower storage cost than state-of-the-art approaches.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="highlight">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3 has-text-centered">Highlight</h2>
+          <div class="columns is-variable is-5">
+            <div class="column">
+              <div class="highlight-card">
+                <p class="highlight-index">01</p>
+                <h3>Adaptive Tetrahedral SDF</h3>
+                <p>Using a Delaunay tetrahedral grid as the geometric carrier allows adaptive mesh extraction instead of relying on a fixed-resolution grid, producing more compact meshes while preserving geometric detail.</p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="highlight-card">
+                <p class="highlight-index">02</p>
+                <h3>SDF Rasterization</h3>
+                <p>We efficiently render the learned SDF by rasterizing tetrahedra and alpha-compositing SDF-derived opacities, avoiding expensive ray marching during optimization.</p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="highlight-card">
+                <p class="highlight-index">03</p>
+                <h3>End-to-End Mesh Reconstruction</h3>
+                <p>We apply differentiable Marching Tetrahedra during optimization so meshes can be extracted during training, enabling end-to-end reconstruction without post-processing and allowing us to directly supervise the mesh.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="motivation">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3 has-text-centered">Motivation</h2>
+
+          <div class="content has-text-justified section-copy">
+            <p>
+              Rasterization-based methods enable efficient optimization, but their volumetric primitives do not provide a
+              direct and globally consistent surface representation, often requiring heuristic post-processing for mesh
+              extraction. Implicit SDF methods define surfaces explicitly, yet usually rely on expensive ray marching
+              during training. SDFRaster bridges these two families by combining the efficiency of rasterization with a
+              well-defined signed distance field for end-to-end mesh reconstruction.
+            </p>
+          </div>
+
+          <div class="media-panel">
+            <video autoplay controls muted preload="metadata" playsinline loop width="100%">
+              <source src="./assets/motivation/motivation.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="method">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3 has-text-centered">Method</h2>
+
+          <div class="content has-text-justified section-copy">
+            <p>
+              We learn a continuous SDF on a Delaunay tetrahedral grid, using a shared multi-resolution hash encoder to
+              predict SDF values at vertices and appearance per tetrahedron. We render the images by rasterizing
+              tetrahedra and alpha-compositing SDF-derived opacities. We apply differentiable Marching Tetrahedra on
+              the tetrahedral grid with the learned SDF values to extract meshes in the optimization loop, enabling
+              end-to-end mesh reconstruction.
+            </p>
+          </div>
+
+          <div class="media-panel">
+            <video autoplay controls muted preload="metadata" playsinline loop width="100%">
+              <source src="./assets/pipeline/pipeline.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="results">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3 has-text-centered">Results</h2>
+
+          <div class="content has-text-justified section-copy">
+            <p>
+              Experiments on DTU and Tanks and Temples show that SDFRaster achieves higher-quality and more complete
+              surface reconstructions than existing rasterization-based baselines while keeping the extracted meshes
+              compact. Compared with methods that rely on post-processing or depth fusion, our approach preserves
+              cleaner topology, sharper edges, and better thin-structure recovery.
+            </p>
+          </div>
+
+          <div class="media-panel">
+            <video autoplay controls muted preload="metadata" playsinline loop width="100%">
+              <source src="./assets/results/results.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="background-reconstruction">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3 has-text-centered">Background Reconstruction</h2>
+
+          <div class="content has-text-justified section-copy">
+            <p>
+              Beyond reconstructing the main object, SDFRaster can also recover background regions thanks to its
+              globally consistent geometry field and adaptive tetrahedral representation. In contrast, 2DGS-style mesh
+              extraction pipelines often focus on the foreground object and miss surrounding scene structures.
+            </p>
+          </div>
+
+          <div class="media-panel">
+            <video autoplay controls muted preload="metadata" playsinline loop width="100%">
+              <source src="./assets/background/background.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container content is-max-desktop">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{cui2026sdfraster,
+  title     = {Distance Field Rasterization for End-to-End Mesh Reconstruction},
+  author    = {Cui, Jinkai and Song, Kaiwen and Niu, Chumeng and Zhang, Juyong},
+  booktitle = {SIGGRAPH Conference Papers '26},
+  year      = {2026}
+}</code></pre>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="./assets/SDFRaster.pdf" target="_blank" rel="noopener" aria-label="Paper link">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="./assets/SDFRaster.pdf" target="_blank" rel="noopener" aria-label="arXiv link">
+          <i class="ai ai-arxiv"></i>
+        </a>
+        <span class="icon-link is-disabled" aria-label="Code coming soon">
+          <i class="fab fa-github"></i>
+        </span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
