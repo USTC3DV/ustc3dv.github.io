@@ -1,0 +1,264 @@
+﻿body {
+  font-family: "Noto Sans", sans-serif;
+  color: #151f31;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+a {
+  transition: color 0.2s ease;
+}
+
+code {
+  background: rgba(18, 42, 76, 0.08);
+  color: #172033;
+}
+
+pre code {
+  display: block;
+  overflow-x: auto;
+  border-radius: 12px;
+  padding: 1.25rem;
+  background: #10192d;
+  color: #f3f7ff;
+}
+
+.publication-title,
+.publication-authors,
+.teaser,
+.progressive-title,
+.highlight-card h3,
+.figure-title,
+.top-nav-links a {
+  font-family: "Google Sans", sans-serif;
+}
+
+.publication-header .hero-body {
+  padding-top: 2.8rem;
+  padding-bottom: 2rem;
+}
+
+.top-nav-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.top-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.top-nav-links a {
+  color: #5f6b7e;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.top-nav-links a:hover {
+  color: #3273dc;
+}
+
+.publication-title {
+  line-height: 1.08;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.publication-authors {
+  margin-bottom: 0.45rem;
+}
+
+.author-block {
+  display: inline-block;
+  margin-right: 0.15rem;
+}
+
+.publication-links {
+  margin-top: 1.5rem;
+}
+
+.link-block a,
+.link-block .button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.teaser .hero-body {
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+
+.teaser-stage {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.teaser-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #ffffff;
+  object-fit: contain;
+  object-position: center;
+  transform: scale(1.1);
+  transform-origin: center center;
+}
+
+.teaser-summary {
+  max-width: 62rem;
+  margin: 1.4rem auto 0;
+  color: #5f6b7e;
+  font-size: 1.22rem;
+  text-wrap: balance;
+}
+
+.abstract-copy {
+  font-size: 1.08rem;
+  line-height: 1.86;
+}
+
+#highlights .highlight-card {
+  border-color: rgba(48, 114, 255, 0.22);
+  box-shadow: 0 16px 34px rgba(48, 114, 255, 0.08);
+  background: linear-gradient(180deg, rgba(245, 249, 255, 0.98), #ffffff);
+}
+
+.highlight-card {
+  height: 100%;
+  padding: 1.4rem;
+  border: 1px solid rgba(21, 31, 49, 0.1);
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.highlight-index {
+  margin-bottom: 0.7rem;
+  color: #3072ff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.highlight-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
+}
+
+.highlight-card p {
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+
+.figure-stack {
+  display: grid;
+  gap: 2.35rem;
+}
+
+.figure-item {
+  padding-top: 0.2rem;
+}
+
+.figure-item + .figure-item {
+  border-top: 1px solid rgba(21, 31, 49, 0.16);
+  padding-top: 2rem;
+}
+
+.figure-title {
+  margin-bottom: 0.75rem;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.figure-copy {
+  max-width: 52rem;
+  margin: 0 auto 1rem;
+}
+
+.figure-copy p {
+  color: #596579;
+}
+
+.media-panel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.media-panel img,
+.media-panel video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.media-slot.missing .media-panel,
+.teaser-stage.media-slot.missing {
+  min-height: 260px;
+  border: 1px dashed #d1d8df;
+}
+
+.media-slot.missing .media-panel::after,
+.teaser-stage.media-slot.missing::after {
+  content: "Missing asset:\a" attr(data-src);
+  white-space: pre;
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  color: #344453;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.5;
+  padding: 1rem;
+  background: #f8fafc;
+}
+
+.media-slot.missing img,
+.media-slot.missing video {
+  opacity: 0;
+}
+
+.compact-footer {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .publication-header .hero-body {
+    padding-top: 2.35rem;
+  }
+
+  .publication-title {
+    font-size: 2.1rem;
+  }
+
+  .highlight-card {
+    padding: 1.2rem;
+  }
+
+  .teaser-summary,
+  .abstract-copy,
+  .highlight-card p {
+    font-size: 1rem;
+  }
+
+  .figure-title {
+    font-size: 1.12rem;
+  }
+}
+

@@ -1,0 +1,261 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Project website for Double-Freeform Lens Design for Angular-Spatial Control of Light Fields.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Double-Freeform Lens Design for Angular-Spatial Control of Light Fields</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Google+Sans:wght@400;500;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script defer src="assets/js/site.js"></script>
+</head>
+<body>
+  <section class="hero publication-header" id="top">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="top-nav-wrap">
+          <div class="top-nav-links">
+            <a href="#highlights">Highlight</a>
+            <a href="#method">Method</a>
+            <a href="#results">Results</a>
+            <a href="#extensions">Extensions</a>
+            <a href="#citation">Citation</a>
+          </div>
+        </div>
+
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Double-Freeform Lens Design for Angular-Spatial Control of Light Fields</h1>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Yuou Sun,</span>
+              <span class="author-block">Bailin Deng,</span>
+              <span class="author-block">Juyong Zhang</span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">University of Science and Technology of China, Cardiff University</span>
+            </div>
+
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="assets/paper/DoubleFreeformLens.pdf" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/0000.00000" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser" id="overview">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <div class="teaser-stage media-slot" data-src="assets/media/figures/teaser_dual_plane.gif">
+          <img class="teaser-video" src="assets/media/figures/teaser_dual_plane.gif" alt="Dual-plane light-field animation">
+        </div>
+
+        <h2 class="subtitle has-text-centered teaser-summary">
+          A single optimized double-freeform lens directs light to form two different irradiance patterns at two receptive planes, showing joint control of both angular and spatial distributions within one compact optical element.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="abstract">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p class="abstract-copy">
+              Precise simultaneous control of both angular and spatial light-field distributions remains a longstanding challenge in optical design, often requiring complex multi-element configurations. In this work, we propose a compact single-lens solution that achieves unified angular-spatial modulation through the co-optimization of double freeform surfaces. The problem is formulated as an extended caustic design that enforces prescribed irradiance patterns on two distinct receptive planes, where the dual-plane constraint implicitly defines the directional characteristics of the light field while preserving spatial accuracy. This framework eliminates the need for auxiliary optical components while delivering performance comparable to that of conventional multi-lens systems. Comprehensive numerical simulations verify the method's effectiveness, demonstrating accurate and stable control of both angular and spatial light-field properties. The proposed approach establishes a practical foundation for compact, high-performance optical systems and provides a promising route toward integrated angular-spatial light-field engineering.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="highlights">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3 has-text-centered">Highlight</h2>
+          <div class="columns is-variable is-5">
+            <div class="column">
+              <div class="highlight-card">
+                <p class="highlight-index">01</p>
+                <h3>Dual-Plane Irradiance Control</h3>
+                <p>The optimization simultaneously matches prescribed irradiance targets on Plane A and Plane B in one unified formulation.</p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="highlight-card">
+                <p class="highlight-index">02</p>
+                <h3>Compact Single-Lens Design</h3>
+                <p>Joint angular-spatial control is achieved with a single double-freeform lens, reducing reliance on cascaded optics.</p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="highlight-card">
+                <p class="highlight-index">03</p>
+                <h3>Robust and Extensible</h3>
+                <p>The framework remains stable across diverse target pairs and extends naturally to high-contrast cases and point-source illumination.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="method">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3 has-text-centered">Method</h2>
+
+          <div class="figure-stack">
+            <article class="figure-item media-slot" data-src="assets/media/figures/fig1_forward_model.png">
+              <h3 class="figure-title">Forward Light Transport Model</h3>
+              <div class="content has-text-justified figure-copy">
+                <p>The two lens surfaces are discretized into paired triangular meshes. Light propagates through both refractive interfaces and accumulates on two receptive planes, making the entire process differentiable.</p>
+              </div>
+              <div class="media-panel">
+                <img src="assets/media/figures/fig1_forward_model.png" alt="Forward transport model figure">
+              </div>
+            </article>
+
+            <article class="figure-item media-slot" data-src="assets/media/figures/fig2_target_outgoing_field.png">
+              <h3 class="figure-title">OT-Guided Target Outgoing Field</h3>
+              <div class="content has-text-justified figure-copy">
+                <p>An optimal transport(OT) mapping between the target planes provides correspondence priors for each sampled ray, improving optimization stability and physical consistency.</p>
+              </div>
+              <div class="media-panel">
+                <img src="assets/media/figures/fig2_target_outgoing_field.png" alt="Target outgoing field figure">
+              </div>
+            </article>
+
+            <article class="figure-item media-slot" data-src="assets/media/figures/fig3_ot_pipeline.png">
+              <h3 class="figure-title">Differentiable Optimization</h3>
+              <div class="content has-text-justified figure-copy">
+                <p>Dual-plane image losses and physical regularization are jointly minimized to update the two freeform surfaces, yielding a compact lens that satisfies angular-spatial constraints.</p>
+              </div>
+              <div class="media-panel">
+                <img src="assets/media/figures/fig3_ot_pipeline.png" alt="OT-guided optimization pipeline figure">
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="results">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3 has-text-centered">Results</h2>
+
+          <div class="figure-stack">
+            <article class="figure-item media-slot" data-src="assets/media/figures/fig9_surface_geometry.png">
+              <h3 class="figure-title">Double-Freeform Geometry Shape</h3>
+              <div class="content has-text-justified figure-copy">
+                <p>Both the incident and exit surfaces exhibit smooth freeform features that satisfy the refractive mapping and jointly produce the two prescribed patterns with angular and spatial control.</p>
+              </div>
+              <div class="media-panel">
+                <img src="assets/media/figures/fig9_surface_geometry.png" alt="Optimized incident and exit surface geometry">
+              </div>
+            </article>
+
+            <article class="figure-item media-slot" data-src="assets/media/figures/fig10_additional_examples.png">
+              <h3 class="figure-title">Generalization Across Target Pairs</h3>
+              <div class="content has-text-justified figure-copy">
+                <p>Across multiple dual-plane target combinations, the method consistently reconstructs distinct irradiance patterns, demonstrating robust angular-spatial controllability.</p>
+              </div>
+              <div class="media-panel">
+                <img src="assets/media/figures/fig10_additional_examples.png" alt="Additional simulation examples">
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="extensions">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3 has-text-centered">Extensions</h2>
+
+          <div class="figure-stack">
+            <article class="figure-item media-slot" data-src="assets/media/figures/fig11_high_contrast.png">
+              <h3 class="figure-title">High-Contrast Dual-Plane Design</h3>
+              <div class="content has-text-justified figure-copy">
+                <p>This high-contrast case demonstrates that the lens can still recover two challenging target patterns on separated receptive planes, while maintaining physically consistent ray deflection and stable image formation.</p>
+              </div>
+              <div class="media-panel">
+                <img src="assets/media/figures/fig11_high_contrast.png" alt="High-contrast dual-plane design result">
+              </div>
+            </article>
+
+            <article class="figure-item media-slot" data-src="assets/media/figures/fig12_point_source_extension.png">
+              <h3 class="figure-title">Point-Source Extension</h3>
+              <div class="content has-text-justified figure-copy">
+                <p>With a point-source illumination model and solid-angle weighting, the same framework remains effective and preserves dual-plane target fidelity.</p>
+              </div>
+              <div class="media-panel">
+                <img src="assets/media/figures/fig12_point_source_extension.png" alt="Point source extension">
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="citation">
+    <div class="container content is-max-desktop">
+      <h2 class="title">Citation</h2>
+      <pre><code>@article{sun2026doublefreeform,
+  title   = {Double-Freeform Lens Design for Angular-Spatial Control of Light Fields},
+  author  = {Sun, Yuou and Deng, Bailin and Zhang, Juyong},
+  journal = {Optics Express},
+  year    = {2026}
+}</code></pre>
+    </div>
+  </section>
+
+  <footer class="footer compact-footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>Double-Freeform Lens Project Website</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
+
+
+
+
