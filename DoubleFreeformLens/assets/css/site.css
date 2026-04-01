@@ -101,8 +101,8 @@ pre code {
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
-  overflow: hidden;
-  border-radius: 12px;
+  overflow: visible;
+  border-radius: 0;
   background: #ffffff;
 }
 
@@ -113,8 +113,7 @@ pre code {
   background: #ffffff;
   object-fit: contain;
   object-position: center;
-  transform: scale(1.1);
-  transform-origin: center center;
+  transform: none;
 }
 
 .teaser-summary {
@@ -261,4 +260,5 @@ pre code {
     font-size: 1.12rem;
   }
 }
+
 
